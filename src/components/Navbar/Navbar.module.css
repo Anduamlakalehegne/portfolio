@@ -3,54 +3,167 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: rgba(13, 13, 23, 0.9);
+  background-color: var(--bg-color);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
+  color: var(--text-color);
 }
 
 .bracket {
-  color: #646cff;
+  color: var(--primary-color);
 }
 
 .slash {
-  color: #646cff;
+  color: var(--primary-color);
   margin: 0 0.2rem;
 }
 
-.links {
+.desktopMenu {
   display: flex;
-  gap: 2rem;
+  gap: 5px;
 }
 
-.links a {
-  color: white;
+.desktopMenu a {
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1rem;
-  transition: color 0.3s;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.5rem;
 }
 
-.links a:hover {
-  color: #646cff;
+.desktopMenu a:hover,
+.desktopMenu a.active {
+  color: var(--primary-color);
+  background-color: var(--active-bg-color);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .githubButton {
-  background-color: #646cff;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .githubButton:hover {
-  background-color: #535bf2;
+  background-color: var(--primary-hover-color);
+}
+
+.darkModeToggle,
+.menuToggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.darkModeToggle:hover,
+.menuToggle:hover {
+  color: var(--primary-color);
+}
+
+.menuToggle {
+  display: none;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktopMenu,
+  .githubButton {
+    display: none;
+  }
+
+  .menuToggle {
+    display: block;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: var(--bg-color);
+    padding: 2rem 1rem;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobileMenu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 0.5rem;
+  }
+
+  .mobileMenu a:hover,
+  .mobileMenu a.active {
+    color: var(--primary-color);
+    background-color: var(--active-bg-color);
+  }
+
+  .mobileGithubButton {
+    margin-top: auto;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .mobileGithubButton:hover {
+    background-color: var(--primary-hover-color);
+  }
+}
+
+/* Dark mode styles */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #646cff;
+  --primary-hover-color: #535bf2;
+  --active-bg-color: rgba(100, 108, 255, 0.1);
+}
+
+.dark-mode {
+  --bg-color: #0d0d17;
+  --text-color: #ffffff;
+  --primary-color: #646cff;
+  --primary-hover-color: #535bf2;
+  --active-bg-color: rgba(100, 108, 255, 0.2);
 }

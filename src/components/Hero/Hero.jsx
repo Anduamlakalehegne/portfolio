@@ -1,10 +1,9 @@
 import React, { useState, useRef } from 'react';
 import styles from './Hero.module.css';
-import img from '../../assets/main-img.png'
+import img from '../../assets/profile2.jpeg'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 const Hero = () => {
-
   const ref = useRef(null);
   const [hovered, setHovered] = useState(false);
 
@@ -43,9 +42,41 @@ const Hero = () => {
 
   return (
     <section className={styles.hero} id="about">
+      <div className={styles.imageContainer}>
+        <motion.div
+          ref={ref}
+          className={styles.card}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            rotateX,
+            rotateY,
+          }}
+          animate={{
+            scale: hovered ? 1.05 : 1,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 400,
+            damping: 30,
+          }}
+        >
+          <div className={styles.imageWrapper}>
+            <img
+              className={styles.profileImage}
+              src={img}
+              alt="Anduamlak Alehegne"
+              width={500}
+              height={500}
+            />
+          </div>
+        </motion.div>
+      </div>
+
       <div className={styles.content}>
         <h1>Hello I'm</h1>
-        <h2>Luke Coleman</h2>
+        <h2>Anduamlak Alehegne</h2>
         <div className={styles.subtitle}>
           <span className={styles.highlight}>Software Developer</span>
         </div>
@@ -56,48 +87,9 @@ const Hero = () => {
         </p>
         <button className={styles.resumeButton}>Download Resume</button>
       </div>
-
-
-      <div className={styles.imageContainer}>
-        {/* <img src={img} alt="Profile" className={styles.profileImage} /> */}
-
-        <motion.div
-        ref={ref}
-        className={styles.card}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          rotateX,
-          rotateY,
-        }}
-        animate={{
-          scale: hovered ? 1.05 : 1,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 400,
-          damping: 30,
-        }}
-      >
-        <div className={styles.imageWrapper}>
-          <img
-           className={styles.profileImage}
-            src={img}
-            alt="alt"
-            width={500}
-            height={500}
-          />
-        </div>
-      </motion.div>
-      </div>
-
     </section>
-
   );
 };
 
 export default Hero;
-
-
 

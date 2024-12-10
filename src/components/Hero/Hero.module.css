@@ -1,28 +1,30 @@
 .hero {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  padding: 0 10%;
-  /* background-color: #0d0d17; */
+  justify-content: center;
+  padding: 80px 10% 0;
   position: relative;
   overflow: hidden;
-  padding-top: 50px;
 }
 
 .content {
   max-width: 600px;
+  width: 100%;
+  text-align: center;
 }
 
 h1 {
   font-size: 2rem;
   color: white;
+  margin-bottom: 0.5rem;
 }
 
 h2 {
   font-size: 3rem;
   color: white;
-  margin-bottom: 1px;
+  margin-bottom: 0.5rem;
 }
 
 .subtitle {
@@ -60,16 +62,98 @@ h2 {
 .imageContainer {
   position: relative;
   display: inline-block;
-  cursor: pointer; /* Optional, shows a pointer cursor over the container */
-  perspective: 1000px; /* Apply perspective to the container for 3D effect */
+  cursor: pointer;
+  perspective: 1000px;
+  margin-bottom: 2rem;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
 }
 
 .profileImage {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  max-height: 300px;
   border-radius: 50%;
   border: 3px solid #646cff;
   object-fit: cover;
-  transition: transform 0.1s ease-out; /* Smooth transition for the movement */
-  transform-style: preserve-3d; /* Preserve 3D space for the child element */
 }
+
+@media (min-width: 1025px) {
+  .hero {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .content {
+    text-align: left;
+  }
+
+  .imageContainer {
+    margin-bottom: 0;
+    margin-left: 2rem;
+  }
+
+  .profileImage {
+    max-width: 400px;
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 5% 0;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .profileImage {
+    max-width: 250px;
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .profileImage {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+
