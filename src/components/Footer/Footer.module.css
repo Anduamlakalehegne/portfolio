@@ -1,0 +1,52 @@
+.footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .title {
+    color: #9f7aea;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .nav {
+    margin-bottom: 1.5rem;
+  }
+  
+  .nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav a:hover {
+    color: #9f7aea;
+  }
+  
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .socialIcons a {
+    color: #ffffff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .socialIcons a:hover {
+    color: #9f7aea;
+  }
+  
+  .copyright {
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    color: #888888;
+  }
+  
