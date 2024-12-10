@@ -25,18 +25,20 @@
 }
 
 .skillCard {
-  /* background-color: rgba(23, 23, 33, 0.9);
-  border-radius: 1rem;
-  padding: 2rem;
-  
-  position: relative;  */
-  /* background-color: rgba(17, 25, 40, 0.81); */
   background-color: rgba(23, 23, 33, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.125);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
   padding: 2rem;
+  border-radius: 1rem;
+  position: relative;
+  transition: transform 0.7s ease, background-color 0.3s ease;
 }
+.skillCard:hover {
+  transform: scale(1.05); /* Smooth scale effect */
+  background-color: rgba(23, 23, 33, 0.95); /* Slight change in background color on hover */
+}
+
 
 .skillCard h3 {
   color: white;
@@ -64,16 +66,6 @@
   width: 24px;
   height: 24px;
 }
-
-/* .cardBorder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 1rem;
-  pointer-events: none; 
-  transition: width 0.3s ease, height 0.3s ease;
-} */
 
 @media (max-width: 768px) {
   .skills {

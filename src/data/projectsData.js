@@ -1,4 +1,4 @@
-import img from '../assets/main-img.png'
+import img from '../assets/bazraProject.png'
 
 export const projectsData = [
   {

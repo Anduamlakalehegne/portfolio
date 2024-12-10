@@ -15,33 +15,14 @@
   text-align: center;
   color: #888;
   margin-bottom: 3rem;
-}
-
-.filters {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-
-.filterButton {
-  background-color: transparent;
-  color: white;
-  border: 1px solid #646cff;
-  padding: 0.5rem 1.5rem;
-  border-radius: 2rem;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.filterButton.active {
-  background-color: #646cff;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
 }
 
@@ -50,46 +31,178 @@
   border-radius: 1rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
-.projectCard:hover {
-  transform: translateY(-5px);
+.projectImageWrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
 }
 
-.projectCard img {
+.projectImageWrapper img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 5px;
+}
+
+.projectOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projectOverlay span {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.projectCard:hover .projectOverlay {
+  opacity: 1;
+}
+
+.projectCard:hover .projectImageWrapper img {
+  transform: scale(1.1);
 }
 
 .projectInfo {
-  padding: 1.5rem;
+  padding: 1px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .projectInfo h3 {
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 2px;
+  font-size: 1.5rem;
 }
 
 .projectInfo p {
   color: #888;
   margin-bottom: 1rem;
   line-height: 1.6;
+  flex-grow: 1;
 }
 
 .techStack {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  margin-top: auto;
 }
 
 .techStack span {
   background-color: rgba(100, 108, 255, 0.1);
-  color: white;
-  padding: 0.3rem 0.8rem;
+  color: #646cff;
+  padding: 0.2rem 0.5rem;
   border-radius: 0.5rem;
   font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.techStack span:hover {
+  background-color: rgba(100, 108, 255, 0.2);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background-color: #1a1a2e;
+  padding: 2rem;
+  border-radius: 1rem 0rem 0rem 1rem;
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #646cff;
+}
+
+.popup h3 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.popup img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.popup p {
+  color: #888;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.projectLinks {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.projectLinks a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #646cff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid #646cff;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.projectLinks a:hover {
+  background-color: #646cff;
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -97,13 +210,13 @@
     padding: 60px 5%;
   }
   
-  .filters {
-    flex-direction: column;
-    align-items: center;
+  .popup {
+    width: 95%;
+    padding: 1.5rem;
   }
-  
-  .filterButton {
-    width: 100%;
-    max-width: 300px;
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
   }
 }
+
