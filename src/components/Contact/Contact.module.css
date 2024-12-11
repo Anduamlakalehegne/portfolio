@@ -18,8 +18,14 @@
 }
 
 .formContainer {
-  max-width: 600px;
+  max-width: 550px;
   margin: 0 auto;
+  background-color: rgba(23, 23, 33, 0.9);
+  background-color: #161620;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+  border-radius: 1rem;
+  padding: 3rem;
 }
 
 .formGroup {
@@ -31,6 +37,7 @@
   width: 100%;
   padding: 1rem;
   background-color: rgba(23, 23, 33, 0.9);
+  background-color: rgba(100, 108, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
   color: white;
@@ -66,6 +73,10 @@
 
 @media (max-width: 768px) {
   .contact {
-    padding: 60px 5%;
+    padding: 20px 5%;
+  }
+
+  .formContainer {
+    padding: 1rem;
   }
 }

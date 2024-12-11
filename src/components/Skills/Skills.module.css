@@ -22,7 +22,12 @@
   grid-template-columns: 43% 43%;
   justify-content: center;
   gap: 2rem;
+  
 }
+.cardContainer {
+  perspective: 1000px;
+}
+
 
 .skillCard {
   background-color: rgba(23, 23, 33, 0.9);
@@ -33,11 +38,12 @@
   border-radius: 1rem;
   position: relative;
   transition: transform 0.7s ease, background-color 0.3s ease;
+  perspective: 1000px;
 }
-.skillCard:hover {
-  transform: scale(1.05); /* Smooth scale effect */
-  background-color: rgba(23, 23, 33, 0.95); /* Slight change in background color on hover */
-}
+/* .skillCard:hover {
+  transform: scale(1.05); 
+  background-color: rgba(23, 23, 33, 0.95); 
+} */
 
 
 .skillCard h3 {

@@ -73,7 +73,7 @@ const Projects = () => {
             key={index} 
             className={styles.projectCard}
             variants={cardVariants}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.1 }}
             whileHover={{ scale: 1.05, boxShadow: '0 8px 16px rgba(0,0,0,0.2)' }}
             onClick={() => openProjectDetails(project)}
           >
