@@ -1,6 +1,6 @@
 :root {
   --bg-color: #ffffff;
-  --text-color: #000000;
+  --text-color: #2e2e2e;
   --highlight-color: #646cff;
   --highlight-hover-color: #535bf2;
   --description-color: #b6b6b6;
@@ -84,20 +84,13 @@ h2 {
 }
 
 .imageContainer {
-  /* position: relative;
+  position: relative;
   display: inline-block;
   cursor: pointer;
   perspective: 1000px;
-  margin-bottom: 2rem; */
-  perspective: 1000px;
+  margin-bottom: 2rem;
 }
 
-/* .card {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.1s ease-out;
-  transform-style: preserve-3d;
-} */
 
 .imageWrapper {
   width: 100%;

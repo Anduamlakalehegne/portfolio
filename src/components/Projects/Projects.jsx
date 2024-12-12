@@ -73,8 +73,8 @@ const Projects = () => {
             key={index} 
             className={styles.projectCard}
             variants={cardVariants}
-            transition={{ duration: 0.1 }}
-            whileHover={{ scale: 1.05, boxShadow: '0 8px 16px rgba(0,0,0,0.2)' }}
+            transition={{ duration: 1 }}
+            whileHover={{ scale: 1.05 }}
             onClick={() => openProjectDetails(project)}
           >
             <div className={styles.projectImageWrapper}>
@@ -102,14 +102,12 @@ const Projects = () => {
             className={styles.overlay}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             onClick={closeProjectDetails}
           >
             <motion.div 
               className={styles.popup}
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.5, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
               <button className={styles.closeButton} onClick={closeProjectDetails}>&times;</button>

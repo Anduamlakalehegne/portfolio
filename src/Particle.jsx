@@ -51,10 +51,10 @@ export default function Particle() {
             },
             particles: {
               color: {
-                value: "#bae6fd",
+                value: "#646cff",
               },
               links: {
-                color: "#e0f2fe",
+                color: "#646cff",
                 distance: 100,
                 enable: true,
                 opacity: 0.5,

@@ -54,7 +54,7 @@
 
 .githubButton {
   background-color: var(--primary-color);
-  color: var(--bg-color);
+  color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -93,6 +93,10 @@
 }
 
 @media (max-width: 768px) {
+  .buttons {
+    padding-right: 10px;
+  }
+  
   .desktopMenu,
   .githubButton {
     display: none;
@@ -139,7 +143,7 @@
   .mobileGithubButton {
     margin-top: auto;
     background-color: var(--primary-color);
-    color: var(--bg-color);
+    color: white;
     border: none;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
@@ -157,19 +161,3 @@
   }
 }
 
-/* Dark mode styles */
-:root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --primary-color: #646cff;
-  --primary-hover-color: #535bf2;
-  --active-bg-color: rgba(100, 108, 255, 0.1);
-}
-
-.dark-mode {
-  --bg-color: #0d0d17;
-  --text-color: #ffffff;
-  --primary-color: #646cff;
-  --primary-hover-color: #535bf2;
-  --active-bg-color: rgba(100, 108, 255, 0.2);
-}

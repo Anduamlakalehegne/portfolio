@@ -1,19 +1,34 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #2e2e2e;
+  --highlight-color: #646cff;
+  --highlight-hover-color: #535bf2;
+  --description-color: #b6b6b6;
+}
+
+.dark-mode {
+  --bg-color: #0d0d17;
+  --text-color: #ffffff;
+  --highlight-color: #646cff;
+  --highlight-hover-color: #535bf2;
+  --description-color: #888888;
+}
+
 .skills {
   padding: 80px 10%;
-  /* background-color: #0d0d17; */
   min-height: 100vh;
 }
 
 .skills h2 {
   text-align: center;
-  color: white;
+  color: var(--text-color);
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .subtitle {
   text-align: center;
-  color: #888;
+  color: var(--text-color);
   margin-bottom: 3rem;
 }
 
@@ -22,24 +37,26 @@
   grid-template-columns: 43% 43%;
   justify-content: center;
   gap: 2rem;
-  
+
 }
+
 .cardContainer {
   perspective: 1000px;
 }
 
-
 .skillCard {
-  background-color: rgba(23, 23, 33, 0.9);
+  /* background-color: rgba(23, 23, 33, 0.9); */
   border: 1px solid rgba(255, 255, 255, 0.125);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+  background-color: var(--bg-color);
   padding: 2rem;
   border-radius: 1rem;
   position: relative;
   transition: transform 0.7s ease, background-color 0.3s ease;
   perspective: 1000px;
 }
+
 /* .skillCard:hover {
   transform: scale(1.05); 
   background-color: rgba(23, 23, 33, 0.95); 
@@ -47,7 +64,7 @@
 
 
 .skillCard h3 {
-  color: white;
+  color: var(--text-color);
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
 }
@@ -62,10 +79,11 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: rgba(100, 108, 255, 0.1);
+  background-color: var(--active-bg-color);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  color: white;
+  color: var(--text-color);
+  /* border: 1px solid #0D0D17; */
 }
 
 .skillItem img {

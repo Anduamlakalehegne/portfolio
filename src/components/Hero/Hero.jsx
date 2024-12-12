@@ -1,12 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './Hero.module.css';
 import img from '../../assets/profile2.jpeg';
-import { motion, useMotionValue, useSpring, useTransform, useScroll, useAnimation } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useScroll, useAnimation, useInView } from 'framer-motion';
 
 const Hero = () => {
   const ref = useRef(null);
-  const [hovered, setHovered] = useState(false);
+  const imageRef = useRef(null);
+  const contentRef = useRef(null);
   const controls = useAnimation();
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -17,17 +19,18 @@ const Hero = () => {
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['17.5deg', '-17.5deg']);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-17.5deg', '17.5deg']);
 
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
-  const y1 = useTransform(scrollYProgress, [0, 0.3], [0, -50]);
-  const y2 = useTransform(scrollYProgress, [0, 0.3], [0, 50]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
 
   const handleMouseMove = (e) => {
-    if (!ref.current) return;
-
-    const rect = ref.current.getBoundingClientRect();
+    const rect = imageRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
 
@@ -41,66 +44,62 @@ const Hero = () => {
     y.set(yPct);
   };
 
-  const handleMouseEnter = () => setHovered(true);
+  // const handleMouseEnter = () => setHovered(true);
   const handleMouseLeave = () => {
-    setHovered(false);
     x.set(0);
     y.set(0);
   };
 
   useEffect(() => {
-    controls.start({ opacity: 1, y: 0, transition: { duration: 25, staggerChildren: 0.1 } });
-  }, [controls]);
-
-
-  const [scrollDirection, setScrollDirection] = useState('down');
-  // const controls = useAnimation();
-
-  // Scroll event listener to detect scroll direction
-  const handleScroll = () => {
-    if (window.scrollY > 100) { // Optional threshold for when to start animating
-      setScrollDirection(window.scrollY > prevScrollY ? 'down' : 'up');
+    if (isInView) {
+      controls.start('visible');
+    } else {
+      controls.start('hidden');
     }
-    prevScrollY = window.scrollY;
+  }, [isInView, controls]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Trigger animation based on scroll direction
-    if (scrollDirection === 'down') {
-      controls.start({ x: 0, opacity: 1, transition: { duration: 1 } });
-    } else {
-      controls.start({ x: 100, opacity: 0, transition: { duration: 1 } });
-    }
-  }, [scrollDirection, controls]);
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+      },
+    },
+  };
 
   return (
-    <section className={styles.hero} id="about">
+    <section ref={ref} className={styles.hero} id="about">
       <motion.div
+        ref={imageRef}
         className={styles.imageContainer}
-        style={{ y: y1 }}
-        animate={{ y: [0, 30, 0] }}
-        transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+        style={{ y: imageY, opacity: imageOpacity }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5 }}
       >
         <motion.div
-          ref={ref}
           className={styles.card}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
           style={{
             rotateX,
             rotateY,
           }}
-          animate={{
-            scale: hovered ? 1.05 : 1,
-          }}
+          whileHover={{ scale: 1.05 }}
           transition={{
             type: 'spring',
             stiffness: 400,
@@ -120,57 +119,28 @@ const Hero = () => {
       </motion.div>
 
       <motion.div
+        ref={contentRef}
         className={styles.content}
-        style={{
-          x: scrollDirection === 'down' ? 0 : 100,
-          opacity: scrollDirection === 'down' ? 1 : 0
-        }}
-        initial={{ opacity: 0, x: 100 }} // Start position is from right (100)
-        animate={controls} // Controls animation based on scroll direction
+        style={{ y: contentY, opacity: contentOpacity }}
+        variants={containerVariants}
+        initial="hidden"
+        animate={controls}
       >
-        <motion.h1
-          variants={{
-            hidden: { opacity: 0, x: 20 }, // Start from right
-            visible: { opacity: 1, x: 0 },  // End at normal position
-          }}
-        >
+        <motion.h1 variants={itemVariants}>
           Hello I'm
         </motion.h1>
-        <motion.h2
-          variants={{
-            hidden: { opacity: 0, x: 20 },
-            visible: { opacity: 1, x: 0 },
-          }}
-        >
+        <motion.h2 variants={itemVariants}>
           Anduamlak Alehegne
         </motion.h2>
-        <motion.div
-          className={styles.subtitle}
-          variants={{
-            hidden: { opacity: 0, x: 20 },
-            visible: { opacity: 1, x: 0 },
-          }}
-        >
+        <motion.div className={styles.subtitle} variants={itemVariants}>
           <span className={styles.highlight}>Software Developer</span>
         </motion.div>
-        <motion.p
-          className={styles.description}
-          variants={{
-            hidden: { opacity: 0, x: 20 },
-            visible: { opacity: 1, x: 0 },
-          }}
-        >
+        <motion.p className={styles.description} variants={itemVariants}>
           I excel at crafting elegant digital experiences and
           I am proficient in various programming languages and
           technologies.
         </motion.p>
-        <motion.button
-          className={styles.resumeButton}
-          variants={{
-            hidden: { opacity: 0, x: 20 },
-            visible: { opacity: 1, x: 0 },
-          }}
-        >
+        <motion.button className={styles.resumeButton} variants={itemVariants}>
           Download Resume
         </motion.button>
       </motion.div>
@@ -179,3 +149,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
