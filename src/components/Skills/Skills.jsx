@@ -163,7 +163,7 @@ const Skills = () => {
         }}
         transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
       >
-        Here are some of my skills on which I have been working on for the past 3 years.
+        Here are some of my skills on which I have been working on for the past 3+ years.
       </motion.p>
 
       <motion.div 

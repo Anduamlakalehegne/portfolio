@@ -10,8 +10,8 @@ export const experienceData = [
     company: "ShowLife",
     companyLogo: abronal,
     date: "Feb 2022 - June 2022",
-    description: "Enhanced user experiences on Neurobit PSG & Hybrid Portals by resolving bugs & reduced load time by 40%. Built Neurobit Analytics portal using React.Js with seamless interaction of REST APIs using AXIOS optimized with React Query. Refactored previous code to TypeScript, updated with new dependency and integrated Vite with Jest for Unit Testing.",
-    skills: ["ReactJS", "Redux", "NodeJs", "Material UI", "HTML", "CSS", "JavaScript"]
+    description: "As a Frontend Developer Intern, I had the opportunity to work closely with senior developers and contribute to the design, development, and optimization of web applications. I was involved in various stages of the development process, from prototyping to deploying interactive, responsive, and user-friendly interfaces.",
+    skills: ["HTML", "CSS", "JavaScript"]
   },
   {
     role: "Frontend Developer",

@@ -133,12 +133,12 @@ const Hero = () => {
           Anduamlak Alehegne
         </motion.h2>
         <motion.div className={styles.subtitle} variants={itemVariants}>
-          <span className={styles.highlight}>Software Developer</span>
+          <span className={styles.highlight}>Full-Stack Developer</span>
         </motion.div>
         <motion.p className={styles.description} variants={itemVariants}>
-          I excel at crafting elegant digital experiences and
-          I am proficient in various programming languages and
-          technologies.
+          I specialize in building dynamic, user-friendly web applications using the latest technologies.
+          From crafting seamless front-end interfaces to developing robust back-end systems, I bring ideas
+          to life with clean, efficient code. Let's turn your vision into reality!
         </motion.p>
         <motion.button className={styles.resumeButton} variants={itemVariants}>
           Download Resume

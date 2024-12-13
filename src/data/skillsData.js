@@ -125,17 +125,9 @@ export const skillsData = [
         icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg"
       },
       {
-        name: "Grafana",
-        icon: "https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg"
-      },
-      {
         name: "Kubernetes",
         icon: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg"
       },
-      {
-        name: "Prometheus",
-        icon: "https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg"
-      }
     ]
   },
   {

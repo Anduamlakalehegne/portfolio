@@ -20,7 +20,7 @@ const Experience = () => {
       ref={ref}
       id="experience" 
       className={styles.experience}
-      style={{ opacity, scale }}
+      // style={{ opacity, scale }}
     >
       <motion.h2
         initial={{ opacity: 0, y: -50 }}
@@ -52,8 +52,8 @@ const Experience = () => {
                 src={exp.companyLogo} 
                 alt={exp.company} 
                 className={styles.companyLogo}
-                initial={{ rotate: 0 }}
-                animate={{ rotate: 360 }}
+                // initial={{ rotate: 0 }}
+                // animate={{ rotate: 360 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
               />
             }
