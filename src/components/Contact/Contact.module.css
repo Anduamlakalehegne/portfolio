@@ -6,14 +6,14 @@
 
 .contact h2 {
   text-align: center;
-  color: white;
+  color: var(--text-color);
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .subtitle {
   text-align: center;
-  color: #888;
+  color: var(--text-color);
   margin-bottom: 3rem;
 }
 
