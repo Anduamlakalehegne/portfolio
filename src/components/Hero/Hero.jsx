@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import styles from './Hero.module.css';
-import img from '../../assets/profile2.jpeg';
+import img from '../../assets/pp.png';
+// import img from '../../assets/mesita21.jpg';
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useAnimation, useInView } from 'framer-motion';
 
 const Hero = () => {
@@ -111,8 +112,8 @@ const Hero = () => {
               className={styles.profileImage}
               src={img}
               alt="Anduamlak Alehegne"
-              width={500}
-              height={500}
+              // width={500}
+              // height={500}
             />
           </div>
         </motion.div>

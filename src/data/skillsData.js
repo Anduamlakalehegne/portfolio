@@ -157,10 +157,10 @@ export const skillsData = [
         "name": "Thunder Client",
         "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/code/code-original.svg"
       },
-      {
-        "name": "cPanel",
-        "icon": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Cpanel_logo.png"
-      },
+      // {
+      //   "name": "cPanel",
+      //   "icon": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Cpanel_logo.png"
+      // },
       {
         "name": "WordPress",
         "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/wordpress/wordpress-original.svg"
