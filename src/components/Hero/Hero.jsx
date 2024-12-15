@@ -112,8 +112,6 @@ const Hero = () => {
               className={styles.profileImage}
               src={img}
               alt="Anduamlak Alehegne"
-              // width={500}
-              // height={500}
             />
           </div>
         </motion.div>
