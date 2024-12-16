@@ -77,11 +77,11 @@ const Navbar = () => {
       </div>
       <div className={styles.buttons}>
         <button className={styles.githubButton}>
-          <FaGithub /> Github Profile
+          <FaGithub /><a href='https://github.com/Anduamlakalehegne' style={{textDecoration:'none', color:'white'}}>Github Profile</a>
         </button>
-        <button className={styles.darkModeToggle} onClick={toggleDarkMode}>
+        {/* <button className={styles.darkModeToggle} onClick={toggleDarkMode}>
           {isDarkMode ? <FaSun /> : <FaMoon />}
-        </button>
+        </button> */}
         <button className={styles.menuToggle} onClick={toggleMenu}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>

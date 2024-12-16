@@ -11,22 +11,22 @@ export const experienceData = [
     companyLogo: abronal,
     date: "Feb 2022 - June 2022",
     description: "As a Frontend Developer Intern, I had the opportunity to work closely with senior developers and contribute to the design, development, and optimization of web applications. I was involved in various stages of the development process, from prototyping to deploying interactive, responsive, and user-friendly interfaces.",
-    skills: ["HTML", "CSS", "JavaScript"]
+    skills: ["HTML", "CSS", "JavaScript", ]
   },
   {
     role: "Frontend Developer",
     company: "Bazra Technology Group",
     companyLogo: bazra,
     date: "June 2022 - March 2023",
-    description: "Enhanced user experiences on Neurobit PSG & Hybrid Portals by resolving bugs & reduced load time by 40%. Built Neurobit Analytics portal using React.Js with seamless interaction of REST APIs using AXIOS optimized with React Query. Refactored previous code to TypeScript, updated with new dependency and integrated Vite with Jest for Unit Testing.",
+    description: "At Bazra Technology Group, I contributed to developing responsive and user-friendly web applications. Using technologies like React, Vue.js, and CSS frameworks, I helped create dynamic interfaces while ensuring seamless performance across devices. I collaborated with cross-functional teams, integrated APIs, and optimized code for speed and efficiency, ensuring high-quality, user-centric solutions. This experience sharpened my skills in frontend development and solidified my passion for building intuitive web applications.",
     skills: ["ReactJS", "Redux", "NodeJs", "Material UI", "HTML", "CSS", "JavaScript"]
   },
   {
-    role: "DevOps & Fullstack Engineering Intern",
+    role: "Fullstack Developer",
     company: "Wegagen Bank",
     companyLogo: wegagen,
     date: "March 2023 - Present",
-    description: "Built Flipr Connect Platforms using React.Js integrated GraphQL with AXIOS, created high level Design and Figma design. Built Backend with GraphQL and Node.JS and connected with MongoDB – Reducing API calls by 20%. Dockerized and automated with Kubernetes & Jenkins CI/CD deployed in AWS-EC2 added Prometheus & Grafana for monitoring.",
-    skills: ["Docker", "Terraform", "AWS", "EC2", "Portainer", "Nginx", "JavaScript", "TypeScript", "Node.Js", "Next.Js"]
+    description: "As a Fullstack Developer at Wegagen Bank, I worked on developing and maintaining both frontend and backend solutions for the bank's web applications. I utilized React and Node.js to create seamless user experiences while ensuring robust backend functionality. My role involved building scalable APIs, integrating third-party services, and optimizing application performance. Collaborating with cross-functional teams, I helped deliver secure, efficient, and user-friendly banking solutions that met business and customer needs.",
+    skills: ["ReactJS", "Redux", "TypeScript", "Next.Js", "Material UI", "NodeJs",, "Express.js", "Node.Js", "GraphQL", "PostgreSQL", "MongoDB", "Nginx"]
   }
 ];

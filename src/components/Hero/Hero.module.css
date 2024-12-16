@@ -93,23 +93,19 @@ h2 {
 
 
 .imageWrapper {
-  width: 500px;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 100%;
 }
-
 
 .profileImage {
   width: 100%;
   height: 100%;
+  max-width: 300px;
+  max-height: 300px;
   border-radius: 50%;
   border: 3px solid var(--highlight-color);
+  object-fit: cover;
   transition: border-color 0.3s ease;
-  background-color: #0D0D17;
-  /* background-size: 10%; */
-  background-size: 10%;
 }
 
 @media (min-width: 1025px) {
@@ -179,3 +175,4 @@ h2 {
     max-height: 200px;
   }
 }
+

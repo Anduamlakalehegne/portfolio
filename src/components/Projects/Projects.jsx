@@ -30,8 +30,8 @@ const Projects = () => {
     }
   }, [controls, inView]);
 
-  const filteredProjects = filter === 'ALL'  
-    ? projectsData 
+  const filteredProjects = filter === 'ALL'
+    ? projectsData
     : projectsData.filter(project => project.category === filter);
 
   const openProjectDetails = (project) => {
@@ -48,9 +48,9 @@ const Projects = () => {
   };
 
   return (
-    <motion.section 
-      id="projects" 
-      className={styles.projects} 
+    <motion.section
+      id="projects"
+      className={styles.projects}
       ref={ref}
       style={{ opacity, scale }}
     >
@@ -69,10 +69,12 @@ const Projects = () => {
         viewport={{ once: false, amount: 0.5 }}
         transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
       >
-        I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.
+        I have worked on diverse projects across multiple domains, developing both frontend and backend solutions.
+        My experience includes building interactive web applications, optimizing performance, and collaborating
+        with teams to deliver impactful, user-centric products. Some of them are listed below
       </motion.p>
 
-      <motion.div 
+      <motion.div
         className={styles.projectsGrid}
         initial="hidden"
         animate={controls}
@@ -85,21 +87,21 @@ const Projects = () => {
         }}
       >
         {filteredProjects.map((project, index) => (
-          <motion.div 
-            key={index} 
+          <motion.div
+            key={index}
             className={styles.projectCard}
             variants={cardVariants}
             transition={{ duration: 0.5, type: "spring" }}
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             onClick={() => openProjectDetails(project)}
           >
-            <motion.div 
+            <motion.div
               className={styles.projectImageWrapper}
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}
             >
               <img src={project.image} alt={project.title} />
-              <motion.div 
+              <motion.div
                 className={styles.projectOverlay}
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
@@ -116,10 +118,11 @@ const Projects = () => {
             </motion.div>
             <div className={styles.projectInfo}>
               <h3>{project.title}</h3>
-              <p>{project.description}</p>
+              <p>{project.description.slice(0, 100)}{project.description.length > 100 ? '...' : ''}</p>
+
               <div className={styles.techStack}>
                 {project.technologies.map((tech, techIndex) => (
-                  <motion.span 
+                  <motion.span
                     key={techIndex}
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -138,22 +141,22 @@ const Projects = () => {
 
       <AnimatePresence>
         {selectedProject && (
-          <motion.div 
+          <motion.div
             className={styles.overlay}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeProjectDetails}
           >
-            <motion.div 
+            <motion.div
               className={styles.popup}
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.5, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <motion.button 
-                className={styles.closeButton} 
+              <motion.button
+                className={styles.closeButton}
                 onClick={closeProjectDetails}
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
@@ -167,8 +170,8 @@ const Projects = () => {
               >
                 {selectedProject.title}
               </motion.h3>
-              <motion.img 
-                src={selectedProject.image} 
+              <motion.img
+                src={selectedProject.image}
                 alt={selectedProject.title}
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -181,14 +184,14 @@ const Projects = () => {
               >
                 {selectedProject.description}
               </motion.p>
-              <motion.div 
+              <motion.div
                 className={styles.techStack}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
                 {selectedProject.technologies.map((tech, techIndex) => (
-                  <motion.span 
+                  <motion.span
                     key={techIndex}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -199,24 +202,24 @@ const Projects = () => {
                   </motion.span>
                 ))}
               </motion.div>
-              <motion.div 
+              <motion.div
                 className={styles.projectLinks}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.7 }}
               >
-                <motion.a 
-                  href={selectedProject.githubLink} 
-                  target="_blank" 
+                <motion.a
+                  href={selectedProject.githubLink}
+                  target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <FaGithub /> View Code
                 </motion.a>
-                <motion.a 
-                  href={selectedProject.liveLink} 
-                  target="_blank" 
+                <motion.a
+                  href={selectedProject.liveLink}
+                  target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

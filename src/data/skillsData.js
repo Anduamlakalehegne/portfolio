@@ -79,10 +79,10 @@ export const skillsData = [
         "name": "MongoDB",
         "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
       },
-      {
-        "name": "NestJS",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-plain.svg"
-      },
+      // {
+      //   "name": "NestJS",
+      //   "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-plain.svg"
+      // },
       {
         "name": "SQLite",
         "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg"
@@ -151,12 +151,13 @@ export const skillsData = [
       },
       {
         "name": "Postman",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
+        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postman/postman-original.svg"
       },
-      {
-        "name": "Thunder Client",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/code/code-original.svg"
-      },
+      
+      // {
+      //   "name": "Thunder Client",
+      //   "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/code/code-original.svg"
+      // },
       // {
       //   "name": "cPanel",
       //   "icon": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Cpanel_logo.png"
