@@ -94,6 +94,8 @@ const Footer = () => {
             <motion.a 
               key={item} 
               href={`#${item.toLowerCase()}`}
+              target="_blank"  // Added target="_blank" to open the link in a new tab
+              rel="noopener noreferrer"  // Added rel="noopener noreferrer" for security
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.5 }}
@@ -112,16 +114,17 @@ const Footer = () => {
           viewport={{ once: false, amount: 0.5 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          {[
+          {[ 
             { Icon: FaFacebook, label: 'Facebook', href: 'https://web.facebook.com/anduamlak.alehegne.79' },
-            // { Icon: FaTwitter, label: 'Twitter', href: '#twitter' },
-            { Icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/anduamlak-alehegne-4632aa219/' },
-            { Icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/na.ndu_27/' },
+            { Icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/anduaml-alehegne-4632aa219/' },
+            { Icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/na.ndu_27/', target: "_blank", rel: "noopener noreferrer" },
           ].map(({ Icon, label, href }, index) => (
             <motion.a 
               key={label} 
               href={href} 
               aria-label={label}
+              target="_blank"  // Open in new tab
+              rel="noopener noreferrer"  // Security measure
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: false, amount: 0.5 }}
