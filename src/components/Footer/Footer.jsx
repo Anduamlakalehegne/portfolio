@@ -113,10 +113,10 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           {[
-            { Icon: FaFacebook, label: 'Facebook', href: '#https://web.facebook.com/anduamlak.alehegne.79' },
-            { Icon: FaTwitter, label: 'Twitter', href: '#twitter' },
-            { Icon: FaLinkedin, label: 'LinkedIn', href: '#linkedin' },
-            { Icon: FaInstagram, label: 'Instagram', href: '#instagram' },
+            { Icon: FaFacebook, label: 'Facebook', href: 'https://web.facebook.com/anduamlak.alehegne.79' },
+            // { Icon: FaTwitter, label: 'Twitter', href: '#twitter' },
+            { Icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/anduamlak-alehegne-4632aa219/' },
+            { Icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/na.ndu_27/' },
           ].map(({ Icon, label, href }, index) => (
             <motion.a 
               key={label} 
