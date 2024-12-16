@@ -66,6 +66,7 @@ h2 {
   margin-bottom: 2rem;
   line-height: 1.6;
   transition: color 0.3s ease;
+  font-size: 1.2rem;
 }
 
 .resumeButton {
@@ -93,22 +94,48 @@ h2 {
 
 
 .imageWrapper {
-  width: 100%;
-  height: 100%;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profileImage {
   width: 100%;
   height: 100%;
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 500px;
+  max-height: 500px;
   border-radius: 50%;
   border: 3px solid var(--highlight-color);
   object-fit: cover;
   transition: border-color 0.3s ease;
+
 }
 
 @media (min-width: 1025px) {
+  .hero {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .content {
+    text-align: left;
+  }
+
+  .imageContainer {
+    margin-bottom: 0;
+    margin-left: 2rem;
+  }
+
+  /* .profileImage {
+    max-width: 400px;
+    max-height: 400px;
+  } */
+}
+
+@media (max-width: 1700px) {
   .hero {
     flex-direction: row;
     justify-content: space-around;

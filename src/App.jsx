@@ -1,21 +1,37 @@
-import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Skills from './components/Skills/Skills';
 import Experience from './components/Experience/Experience';
-import Projects from './components/Projects/Projects';
-import Contact from './components/Contact/Contact';
 import './App.css';
-import Footer from './components/Footer/Footer';
-import Snowfall from 'react-snowfall';
-import Particle from './Particle';
+import Projects from './components/Projects/Projects';
 import Education from './components/Education/Education';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
+import { Circles } from 'react-loader-spinner'; // import spinner
+import { useState, useEffect } from 'react';
 
 
 function App() {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data fetching
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Set your loading time (in ms)
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="loading-screen">
+        <Circles color="#646CFF" height={80} width={80} />
+      </div>
+    );
+  }
+
   return (
     <div className="app">
-      <Particle />
       <Navbar />
       <Hero />
       <Skills />

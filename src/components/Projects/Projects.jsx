@@ -81,7 +81,7 @@ const Projects = () => {
         variants={{
           visible: {
             transition: {
-              staggerChildren: 0.8,
+              staggerChildren: 0.3,
             },
           },
         }}

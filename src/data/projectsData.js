@@ -3,16 +3,63 @@ import pmt from '../assets/pmt.png'
 import fraud from '../assets/fraud.png'
 import clinic from '../assets/clinic.png'
 import dor from '../assets/dor.png'
+import related from '../assets/related.png'
+import website from '../assets/website.png'
+import eifdda from '../assets/eifdda.png'
+import ceo from '../assets/ceo.png'
 
 export const projectsData = [
   {
-    title: "Bazra Tracker ",
-    description: "Our Logistic System is an advanced platform designed to automate and optimize the entire logistics and supply chain process. It offers end-to-end solutions, from order placement to real-time shipment tracking and final delivery. The system integrates seamlessly with inventory management tools, enabling efficient stock control and order fulfillment. Key features include route optimization for faster deliveries, automated scheduling, and dynamic inventory updates. The platform provides real-time tracking for both businesses and customers, ensuring transparency and reliability. With built-in analytics, it helps identify inefficiencies and provides actionable insights to improve logistics operations. Additionally, the system supports multi-location logistics management, enabling businesses to handle multiple warehouses, distribution centers, and delivery points with ease. By leveraging modern technologies and third-party integrations, the system ensures a smooth and efficient flow of goods, ultimately reducing operational costs and improving customer satisfaction.",
-    image: img,
-    category: "WEB APP'S",
-    githubLink: "https://github.com/BazraTech/bazraTech",
-    liveLink: " http://bazralogistics.com/",
-    technologies: ["React.JS", "PostgreSQL", "Node.JS", "Express.JS", "Redux", "React Flow","JWT",]
+    title: "Talk To The CEO",
+    description: "The 'Talk To The CEO' project aims to create a platform where customers can communicate directly with the CEO of the bank. This project includes both frontend and backend development, API integrations, and OTP validation for secure user authentication.",
+    image: ceo,
+    category: "MACHINE LEARNING",
+    technologies: ["React.JS", "TypeScript", "Next.JS", "Node.JS", "MongoDB", "Express.JS","JWT","Material-UI", "Email.JS", "Socket.IO" ]
+  },
+  {
+    title: "Wegagen Bank Official Website",
+    description: "The Wegagen Bank Official Website is a user-friendly, responsive platform designed to provide customers with access to all the bank’s services, products, and information. The website allows users to explore various banking services such as personal accounts, loans, credit cards, and investment options. It also provides up-to-date information on branch locations, ATMs, and online banking services. The site is optimized for both desktop and mobile views, offering a seamless user experience across different devices. The website includes secure login functionalities for customers to access online banking features and perform transactions.",
+    image: website, 
+    category: "BANKING WEBSITE",
+    // githubLink: "https://github.com/YourRepo/wegagen-bank-website", 
+    liveLink: "http://www.wegagen.com/", // Replace with actual live site link
+    technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "MongoDB", "Strapi"]
+  },
+  {
+    title: "EIFDDA Official Website",
+    description: "EIFDDA.org is a platform for the Ethiopian Interfaith Forum for Development, Dialogue, and Action. It promotes peace and collaboration among diverse religious communities. The website features a user-friendly interface with an event calendar, news updates, and interactive forms for community engagement. It is responsive, optimized for performance, and includes robust security measures to protect user data. The site effectively communicates EIFDDA’s mission of fostering interfaith dialogue and development.",
+    image: eifdda, // Replace with actual image path or URL
+    category: "NGO WEBSITE",
+    githubLink: "https://github.com/YourRepo/eifdda-website", 
+    liveLink: "http://eifdda.org", 
+    technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js"]
+  },
+  {
+    title: "Banking Daily Operations Report Dashboard",
+    description: "Our Banking Daily Operations Report Dashboard is a comprehensive solution designed to provide an in-depth analysis of various banking operations in real-time. It features detailed tabs for Retail Operations, Finance, Credit Operations, and Digital Operations, each offering critical insights into the bank's performance. The Retail Operations tab tracks deposit growth and total deposits, segmented by region, district, and product type, with flexible time filtering options (weekly, monthly, quarterly, and yearly). The Finance tab monitors key financial metrics, including the number of shareholders, paid-up capital, and cash position, with detailed breakdowns by region, district, and product type. The Credit Operations tab focuses on daily loan disbursements, collections, and outstanding loans. The Digital Operations tab provides transaction data for USSD, mobile, ATM, and POS operations. Additionally, the dashboard includes sections to display the total number of customers, employees, branches, ATMs, agents, and POS terminals, with a button to display the daily exchange rate. This dashboard ensures bank management has all the operational data they need at their fingertips, enabling quick, data-driven decision-making.",
+    image: dor, 
+    category: "BANKING SOLUTIONS",
+    // githubLink: "https://github.com/YourRepo/banking-daily-operations-dashboard",
+    // liveLink: "http://yourbankingdashboard.com/", 
+    technologies: ["React.js", "TypeScript", "Next.JS", "Node.js", "Express.js", "Chart.js", "D3.js", "MongoDB", "Redux", "Material-UI", "Oracle DB"]
+  },
+  {
+    title: "Related Party System",
+    description: "The Related Party System is a comprehensive solution designed to ensure compliance with the National Bank of Ethiopia (NBE) directives, specifically Dir. No. SBB 053/12. The system identifies loans and advances that have been approved exceptionally by the approving committee for related parties of the bank. It helps track these transactions, ensuring they are properly recorded and reported. The system generates real-time reports to provide visibility on related party transactions and loans, which are critical for the bank's executive leadership team. This information is used for strategic planning, risk management, and decision-making, ensuring the bank operates transparently and in alignment with regulatory requirements.",
+    image: related, 
+    category: "BANKING COMPLIANCE SYSTEMS",
+    // githubLink: "https://github.com/YourRepo/related-party-system", 
+    // liveLink: "http://yourrelatedpartysystem.com/", 
+    technologies: ["React.js", "TypeScript", "Next.JS",  "Node.js", "Express.js", "MongoDB", "Redux", "Material-UI"]
+  },
+  {
+    title: "Clinic Management System",
+    description: "Our Clinic Management System is an all-in-one solution designed to streamline and automate the day-to-day operations of clinics and healthcare facilities. It enables clinics to manage patient appointments, medical records, billing, and staff efficiently. The system allows patients to book appointments online, while the clinic staff can track patient history, treatments, and prescriptions in a secure, digital environment. Key features include a patient portal for easy access to medical records, automated reminders for upcoming appointments, and real-time updates for both doctors and patients. The system integrates with laboratory and pharmacy management tools, ensuring seamless coordination for lab tests and medication prescriptions. Additionally, the platform provides advanced reporting features for clinic management, helping track financials, inventory, and operational performance. With a focus on security, the system ensures compliance with healthcare data protection regulations, providing a secure platform for managing sensitive patient information.",
+    image: clinic ,
+    category: "HEALTHCARE SOLUTIONS",
+    // githubLink: "https://github.com/YourRepo/clinic-management-system", 
+    // liveLink: "http://yourclinicmanagementsystem.com/", 
+    technologies: ["React.JS", "Node.JS", "MongoDB", "Express.JS", "JWT", "Material-UI", "MySQL"]
   },
   {
     title: "Project Management Tool",
@@ -32,28 +79,13 @@ export const projectsData = [
     technologies: ["React.JS", "Node.JS", "MongoDB", "Express.JS","JWT",]
   },
   {
-    title: "Clinic Management System",
-    description: "Our Clinic Management System is an all-in-one solution designed to streamline and automate the day-to-day operations of clinics and healthcare facilities. It enables clinics to manage patient appointments, medical records, billing, and staff efficiently. The system allows patients to book appointments online, while the clinic staff can track patient history, treatments, and prescriptions in a secure, digital environment. Key features include a patient portal for easy access to medical records, automated reminders for upcoming appointments, and real-time updates for both doctors and patients. The system integrates with laboratory and pharmacy management tools, ensuring seamless coordination for lab tests and medication prescriptions. Additionally, the platform provides advanced reporting features for clinic management, helping track financials, inventory, and operational performance. With a focus on security, the system ensures compliance with healthcare data protection regulations, providing a secure platform for managing sensitive patient information.",
-    image: clinic ,
-    category: "HEALTHCARE SOLUTIONS",
-    // githubLink: "https://github.com/YourRepo/clinic-management-system", 
-    // liveLink: "http://yourclinicmanagementsystem.com/", 
-    technologies: ["React.JS", "Node.JS", "MongoDB", "Express.JS", "JWT", "Material-UI", "MySQL"]
-  },
-  {
-    title: "Talk To The CEO",
-    description: "The 'Talk To The CEO' project aims to create a platform where customers can communicate directly with the CEO of the bank. This project includes both frontend and backend development, API integrations, and OTP validation for secure user authentication. The project duration is planned for 1 month and 15 days.",
+    title: "Bazra Tracker ",
+    description: "Our Logistic System is an advanced platform designed to automate and optimize the entire logistics and supply chain process. It offers end-to-end solutions, from order placement to real-time shipment tracking and final delivery. The system integrates seamlessly with inventory management tools, enabling efficient stock control and order fulfillment. Key features include route optimization for faster deliveries, automated scheduling, and dynamic inventory updates. The platform provides real-time tracking for both businesses and customers, ensuring transparency and reliability. With built-in analytics, it helps identify inefficiencies and provides actionable insights to improve logistics operations. Additionally, the system supports multi-location logistics management, enabling businesses to handle multiple warehouses, distribution centers, and delivery points with ease. By leveraging modern technologies and third-party integrations, the system ensures a smooth and efficient flow of goods, ultimately reducing operational costs and improving customer satisfaction.",
     image: img,
-    category: "MACHINE LEARNING",
-    technologies: ["React.JS", "TypeScript", "Next.JS", "Node.JS", "MongoDB", "Express.JS","JWT","Material-UI", "Email.JS", "Socket.IO" ]
+    category: "WEB APP'S",
+    githubLink: "https://github.com/BazraTech/bazraTech",
+    liveLink: " http://bazralogistics.com/",
+    technologies: ["React.JS", "PostgreSQL", "Node.JS", "Express.JS", "Redux", "React Flow","JWT",]
   },
-  {
-    title: "Banking Daily Operations Report Dashboard",
-    description: "Our Banking Daily Operations Report Dashboard is a comprehensive solution designed to provide an in-depth analysis of various banking operations in real-time. It features detailed tabs for Retail Operations, Finance, Credit Operations, and Digital Operations, each offering critical insights into the bank's performance. The Retail Operations tab tracks deposit growth and total deposits, segmented by region, district, and product type, with flexible time filtering options (weekly, monthly, quarterly, and yearly). The Finance tab monitors key financial metrics, including the number of shareholders, paid-up capital, and cash position, with detailed breakdowns by region, district, and product type. The Credit Operations tab focuses on daily loan disbursements, collections, and outstanding loans. The Digital Operations tab provides transaction data for USSD, mobile, ATM, and POS operations. Additionally, the dashboard includes sections to display the total number of customers, employees, branches, ATMs, agents, and POS terminals, with a button to display the daily exchange rate. This dashboard ensures bank management has all the operational data they need at their fingertips, enabling quick, data-driven decision-making.",
-    image: dor, // Replace with actual image path or URL
-    category: "BANKING SOLUTIONS",
-    // githubLink: "https://github.com/YourRepo/banking-daily-operations-dashboard",
-    // liveLink: "http://yourbankingdashboard.com/", 
-    technologies: ["React.js", "Node.js", "Express.js", "Chart.js", "D3.js", "MongoDB", "Redux", "Material-UI"]
-  }
+  
 ];

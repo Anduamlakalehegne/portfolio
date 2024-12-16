@@ -77,7 +77,14 @@ const Navbar = () => {
       </div>
       <div className={styles.buttons}>
         <button className={styles.githubButton}>
-          <FaGithub /><a href='https://github.com/Anduamlakalehegne' style={{textDecoration:'none', color:'white'}}>Github Profile</a>
+          <FaGithub />
+          <a
+            href='https://github.com/Anduamlakalehegne'
+            style={{ textDecoration: 'none', color: 'white' }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >Github Profile
+          </a>
         </button>
         {/* <button className={styles.darkModeToggle} onClick={toggleDarkMode}>
           {isDarkMode ? <FaSun /> : <FaMoon />}
