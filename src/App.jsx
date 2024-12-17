@@ -9,6 +9,7 @@ import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import { Circles } from 'react-loader-spinner'; // import spinner
 import { useState, useEffect } from 'react';
+import Particle from './Particle';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className="app">
+      <Particle />
       <Navbar />
       <Hero />
       <Skills />
