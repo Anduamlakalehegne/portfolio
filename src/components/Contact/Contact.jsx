@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence, useAnimation } from 'framer-motion';
 import emailjs from 'emailjs-com';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import styles from './Contact.module.css';
 
 const Contact = () => {
@@ -105,97 +106,120 @@ const Contact = () => {
           Feel free to reach out to me for any questions or opportunities!
         </motion.p>
 
-        <motion.div 
-          className={styles.formContainer}
-          initial="hidden"
-          animate={formControls}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { 
-              opacity: 1,
-              transition: { staggerChildren: 0.1, delayChildren: 0.3 }
-            }
-          }}
-        >
-          <form ref={formRef} onSubmit={handleSubmit}>
-            <motion.div 
-              className={styles.formGroup}
-              variants={{
-                hidden: { y: 20, opacity: 0 },
-                visible: { y: 0, opacity: 1 }
-              }}
-            >
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </motion.div>
-            <motion.div 
-              className={styles.formGroup}
-              variants={{
-                hidden: { y: 20, opacity: 0 },
-                visible: { y: 0, opacity: 1 }
-              }}
-            >
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </motion.div>
-            <motion.div 
-              className={styles.formGroup}
-              variants={{
-                hidden: { y: 20, opacity: 0 },
-                visible: { y: 0, opacity: 1 }
-              }}
-            >
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-              />
-            </motion.div>
-            <motion.div 
-              className={styles.formGroup}
-              variants={{
-                hidden: { y: 20, opacity: 0 },
-                visible: { y: 0, opacity: 1 }
-              }}
-            >
-              <textarea
-                name="message"
-                placeholder="Message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-            </motion.div>
-            <motion.button 
-              type="submit" 
-              className={styles.submitButton}
-              variants={{
-                hidden: { scale: 0.8, opacity: 0 },
-                visible: { scale: 1, opacity: 1 }
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Sending...' : 'Send'}
-            </motion.button>
-          </form>
-        </motion.div>
+        <div className={styles.contactContainer}>
+          <motion.div 
+            className={styles.formContainer}
+            initial="hidden"
+            animate={formControls}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { 
+                opacity: 1,
+                transition: { staggerChildren: 0.1, delayChildren: 0.3 }
+              }
+            }}
+          >
+            <form ref={formRef} onSubmit={handleSubmit}>
+              <motion.div 
+                className={styles.formGroup}
+                variants={{
+                  hidden: { y: 20, opacity: 0 },
+                  visible: { y: 0, opacity: 1 }
+                }}
+              >
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </motion.div>
+              <motion.div 
+                className={styles.formGroup}
+                variants={{
+                  hidden: { y: 20, opacity: 0 },
+                  visible: { y: 0, opacity: 1 }
+                }}
+              >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </motion.div>
+              <motion.div 
+                className={styles.formGroup}
+                variants={{
+                  hidden: { y: 20, opacity: 0 },
+                  visible: { y: 0, opacity: 1 }
+                }}
+              >
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                />
+              </motion.div>
+              <motion.div 
+                className={styles.formGroup}
+                variants={{
+                  hidden: { y: 20, opacity: 0 },
+                  visible: { y: 0, opacity: 1 }
+                }}
+              >
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+              </motion.div>
+              <motion.button 
+                type="submit" 
+                className={styles.submitButton}
+                variants={{
+                  hidden: { scale: 0.8, opacity: 0 },
+                  visible: { scale: 1, opacity: 1 }
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send'}
+              </motion.button>
+            </form>
+          </motion.div>
+
+          <motion.div 
+            className={styles.contactInfo}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
+          >
+            <div className={styles.infoItem}>
+              <Mail size={24} />
+              <span>anduamlakalehegne@gmail.com</span>
+            </div>
+            <div className={styles.infoItem}>
+              <Phone size={24} />
+              <span>+(251) 985233384</span>
+            </div>
+            <div className={styles.infoItem}>
+              <MapPin size={24} />
+              <span>Bole</span>
+            </div>
+          </motion.div>
+        </div>
       </motion.div>
       
       <AnimatePresence>

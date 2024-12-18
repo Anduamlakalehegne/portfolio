@@ -1,7 +1,7 @@
 .contact {
   padding: 80px 10%;
-  /* background-color: #0d0d17; */
   min-height: 100vh;
+  background-color: #0d0d17;
 }
 
 .contact h2 {
@@ -17,10 +17,17 @@
   margin-bottom: 3rem;
 }
 
+.contactContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 80%;
+  margin: auto;
+}
+
 .formContainer {
-  max-width: 550px;
-  margin: 0 auto;
-  background-color: rgba(23, 23, 33, 0.9);
+  flex: 1;
   background-color: #161620;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
@@ -36,7 +43,6 @@
 .formGroup textarea {
   width: 100%;
   padding: 1rem;
-  background-color: rgba(23, 23, 33, 0.9);
   background-color: rgba(100, 108, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
@@ -71,12 +77,65 @@
   background-color: #535bf2;
 }
 
+.contactInfo {
+  flex: 0 0 300px;
+  background-color: #161620;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.infoItem svg {
+  margin-right: 1rem;
+  color: #646cff;
+}
+
+.popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.popupContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.success {
+  background-color: #4caf50;
+}
+
+.error {
+  background-color: #f44336;
+}
+
 @media (max-width: 768px) {
   .contact {
-    padding: 20px 5%;
+    padding: 40px 5%;
   }
 
-  .formContainer {
-    padding: 1rem;
+  .contactContainer {
+    flex-direction: column;
+  }
+
+  .formContainer,
+  .contactInfo {
+    width: 100%;
+    padding: 1.5rem;
   }
 }
+
