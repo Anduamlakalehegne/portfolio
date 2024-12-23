@@ -79,10 +79,6 @@ export const skillsData = [
         "name": "MongoDB",
         "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
       },
-      // {
-      //   "name": "NestJS",
-      //   "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-plain.svg"
-      // },
       {
         "name": "SQLite",
         "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg"
