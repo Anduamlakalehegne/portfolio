@@ -7,7 +7,7 @@ import Projects from './components/Projects/Projects';
 import Education from './components/Education/Education';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
-import { Circles } from 'react-loader-spinner'; // import spinner
+import { Circles } from 'react-loader-spinner'; 
 import { useState, useEffect } from 'react';
 import Particle from './Particle';
 
