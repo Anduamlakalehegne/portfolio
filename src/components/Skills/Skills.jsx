@@ -92,16 +92,11 @@ const SkillItem = ({ skill, index }) => {
         hidden: { opacity: 0, y: 20, scale: 0.8 },
         visible: { opacity: 1, y: 1, scale: 1 },
       }}
-      // initial="hidden"
       animate={controls}
       transition={{ duration: 0.1, delay: index * 0.1, type: "spring" }}
       viewport={{ once: false, amount: 0.5 }}
-
-      // key={skillIndex}
       initial={{ scale: 0 }}
       whileInView={{ scale: 1 }}
-      // viewport={{ once: false, amount: 0.5 }}
-      // transition={{ duration: 0.3, delay: 0.4 + skillIndex * 0.05 }}
     >
       <motion.img 
         src={skill.icon} 
