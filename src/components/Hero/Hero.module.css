@@ -176,7 +176,7 @@ h2 {
   .hero {
     padding: 10px 5% 0;
     gap: 1px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
   }
 
   .content {
