@@ -15,15 +15,14 @@
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: 110vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 10% 0;
+  padding: 80px 5% 0;
   position: relative;
   overflow: hidden;
-  /* background-color: var(--bg-color); */
   transition: background-color 0.3s ease;
 }
 
@@ -31,25 +30,26 @@
   max-width: 600px;
   width: 100%;
   text-align: center;
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  z-index: 1;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2vw, 2rem);
   color: var(--text-color);
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 3vw, 3rem);
   color: var(--text-color);
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
 
 .subtitle {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
   color: var(--text-color);
   margin-bottom: 1.5rem;
   transition: color 0.3s ease;
@@ -89,13 +89,14 @@ h2 {
   display: inline-block;
   cursor: pointer;
   perspective: 1000px;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 500px;
 }
 
-
 .imageWrapper {
-  height: 500px;
-  width: 500px;
+  width: 100%;
+  aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,20 +105,40 @@ h2 {
 .profileImage {
   width: 100%;
   height: 100%;
-  max-width: 500px;
-  max-height: 500px;
   border-radius: 50%;
   border: 3px solid var(--highlight-color);
   object-fit: cover;
-  transition: border-color 0.3s ease;
-
+  transition: all 0.3s ease;
 }
 
-@media (min-width: 1025px) {
+/* Extra large screens */
+@media (min-width: 1700px) {
   .hero {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding: 80px 10% 0;
+    
+  }
+
+  .content {
+    text-align: left;
+    max-width: 800px;
+  }
+
+  .imageContainer {
+    margin: 0 0 0 4rem;
+    max-width: 500px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1025px) and (max-width: 1699px) {
+  .hero {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 80px 8% 0;
   }
 
   .content {
@@ -125,81 +146,70 @@ h2 {
   }
 
   .imageContainer {
-    margin-bottom: 0;
-    margin-left: 2rem;
-  }
-
-  /* .profileImage {
+    margin: 0 0 0 3rem;
     max-width: 400px;
-    max-height: 400px;
-  } */
+  }
 }
 
-@media (max-width: 1700px) {
+/* Tablets and smaller laptops */
+@media (min-width: 768px) and (max-width: 1024px) {
   .hero {
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    padding: 60px 5% 0;
+    gap: 2rem;
   }
 
   .content {
-    text-align: left;
+    max-width: 500px;
   }
 
   .imageContainer {
-    margin-bottom: 0;
-    margin-left: 2rem;
+    max-width: 350px;
   }
 
-  .profileImage {
-    max-width: 400px;
-    max-height: 400px;
+  .description {
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 768px) {
+/* Mobile devices */
+@media (max-width: 767px) {
   .hero {
-    padding: 80px 5% 0;
+    padding: 10px 5% 0;
+    gap: 1px;
+    margin-top: 50px;
   }
 
-  h1 {
-    font-size: 1.5rem;
+  .content {
+    max-width: 100%;
   }
 
-  h2 {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1.5rem;
+  .imageContainer {
+    max-width: 250px;
+    margin: 1.5rem auto;
   }
 
   .description {
     font-size: 0.9rem;
+    margin-bottom: 1.5rem;
   }
 
-  .profileImage {
-    max-width: 250px;
-    max-height: 250px;
+  .resumeButton {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
   }
 }
 
+/* Small mobile devices */
 @media (max-width: 480px) {
-  h1 {
-    font-size: 1.2rem;
+  .hero {
+    padding: 30px 4% 0;
   }
 
-  h2 {
-    font-size: 1.8rem;
-  }
-
-  .subtitle {
-    font-size: 1.2rem;
-  }
-
-  .profileImage {
+  .imageContainer {
     max-width: 200px;
-    max-height: 200px;
+  }
+
+  .description {
+    font-size: 0.85rem;
   }
 }
-

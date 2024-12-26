@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform, useScroll, useAnimatio
 
 const Hero = () => {
   const ref = useRef(null);
-  const imageRef = useRef(null);
+  const imageRef = useRef(null); 
   const contentRef = useRef(null);
   const controls = useAnimation();
   const isInView = useInView(ref, { once: false, amount: 0.3 });

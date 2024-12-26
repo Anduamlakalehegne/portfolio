@@ -8,7 +8,7 @@ import { educationData } from '../../data/educationData';
 const Education = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: ref, 
     offset: ["start end", "end start"],
   });
 
