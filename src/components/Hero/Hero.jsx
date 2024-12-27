@@ -52,9 +52,22 @@ const Hero = () => {
 
   useEffect(() => {
     if (isInView) {
-      controls.start('visible');
+      controls.start({
+        scale: 1,
+        opacity: 1,
+        transition: {
+          duration: 0.8,
+          ease: [0.6, 0.01, -0.05, 0.95]
+        }
+      });
     } else {
-      controls.start('hidden');
+      controls.start({
+        scale: 0.5,
+        opacity: 0,
+        transition: {
+          duration: 0.4
+        }
+      });
     }
   }, [isInView, controls]);
 
@@ -89,9 +102,8 @@ const Hero = () => {
         style={{ y: imageY, opacity: imageOpacity }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={controls}
       >
         <motion.div
           className={styles.card}
@@ -147,4 +159,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

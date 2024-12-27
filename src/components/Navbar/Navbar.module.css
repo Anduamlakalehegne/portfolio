@@ -120,24 +120,49 @@
     right: 0;
     bottom: 0;
     width: 250px;
-    background-color: var(--bg-color);
-    padding: 2rem 1rem;
-    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #1a1b26;
+    padding: 3rem 1rem 2rem 1rem;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.3);
+    gap: 0.5rem;
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+    opacity: 0.8;
+  }
+
+  .closeButton:hover {
+    color: var(--primary-color);
+    opacity: 1;
   }
 
   .mobileMenu a {
-    color: var(--text-color);
+    color: #fff;
     text-decoration: none;
     font-size: 1rem;
     padding: 0.75rem 1rem;
-    transition: color 0.3s, background-color 0.3s;
-    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    border-radius: 0.25rem;
+    opacity: 0.8;
   }
 
   .mobileMenu a:hover,
   .mobileMenu a.active {
-    color: var(--primary-color);
-    background-color: var(--active-bg-color);
+    color: #fff;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .mobileGithubButton {
@@ -160,4 +185,3 @@
     background-color: var(--primary-hover-color);
   }
 }
-

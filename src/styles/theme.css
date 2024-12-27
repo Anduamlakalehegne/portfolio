@@ -1,0 +1,44 @@
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #2d3436;
+  --text-secondary: #636e72;
+  --accent-primary: #646cff;
+  --accent-secondary: #535bf2;
+  --border-color: #dfe6e9;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --hover-bg: rgba(100, 108, 255, 0.08);
+}
+
+.dark-mode {
+  /* Dark theme colors */
+  --bg-primary: #0d0d17;
+  --bg-secondary: #1a1b26;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent-primary: #646cff;
+  --accent-secondary: #535bf2;
+  --border-color: #2d2d3d;
+  --card-bg: #1a1b26;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --nav-bg: rgba(26, 27, 38, 0.8);
+  --hover-bg: rgba(100, 108, 255, 0.15);
+}
+
+/* Global styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
