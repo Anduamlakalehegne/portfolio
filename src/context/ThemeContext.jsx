@@ -12,7 +12,7 @@ export const ThemeProvider = ({ children }) => {
     document.documentElement.classList.toggle('dark-mode', isDarkMode);
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
-
+ 
   const toggleTheme = () => {
     setIsDarkMode(prev => !prev);
   };

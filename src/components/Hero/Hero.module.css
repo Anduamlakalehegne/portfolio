@@ -4,6 +4,13 @@
   --highlight-color: #646cff;
   --highlight-hover-color: #535bf2;
   --description-color: #b6b6b6;
+  --bg-primary: #ffffff;
+  --text-primary: #2e2e2e;
+  --accent-primary: #646cff;
+  --accent-secondary: #535bf2;
+  --text-secondary: #b6b6b6;
+  --card-bg: #ffffff;
+  --card-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .dark-mode {
@@ -12,6 +19,13 @@
   --highlight-color: #646cff;
   --highlight-hover-color: #535bf2;
   --description-color: #888888;
+  --bg-primary: #0d0d17;
+  --text-primary: #ffffff;
+  --accent-primary: #646cff;
+  --accent-secondary: #535bf2;
+  --text-secondary: #888888;
+  --card-bg: #0d0d17;
+  --card-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero {
@@ -23,6 +37,7 @@
   padding: 80px 5% 0;
   position: relative;
   overflow: hidden;
+  background-color: var(--bg-primary);
   transition: background-color 0.3s ease;
 }
 
@@ -36,41 +51,41 @@
 
 h1 {
   font-size: clamp(1.2rem, 2vw, 2rem);
-  color: var(--text-color);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
 
 h2 {
   font-size: clamp(1.8rem, 3vw, 3rem);
-  color: var(--text-color);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
 
 .subtitle {
   font-size: clamp(1.2rem, 2.5vw, 2rem);
-  color: var(--text-color);
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
   transition: color 0.3s ease;
 }
 
 .highlight {
-  color: var(--highlight-color);
+  color: var(--accent-primary);
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .description {
-  color: var(--text-color);
+  color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.6;
-  transition: color 0.3s ease;
   font-size: 1.2rem;
+  transition: color 0.3s ease;
 }
 
 .resumeButton {
-  background-color: var(--highlight-color);
+  background-color: var(--accent-primary);
   color: white;
   border: none;
   padding: 0.7rem 1rem;
@@ -81,7 +96,8 @@ h2 {
 }
 
 .resumeButton:hover {
-  background-color: var(--highlight-hover-color);
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
 }
 
 .imageContainer {
@@ -106,7 +122,7 @@ h2 {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 3px solid var(--highlight-color);
+  border: 3px solid var(--accent-primary);
   object-fit: cover;
   transition: all 0.3s ease;
 }
@@ -118,7 +134,6 @@ h2 {
     justify-content: space-around;
     align-items: center;
     padding: 80px 10% 0;
-    
   }
 
   .content {
@@ -176,7 +191,6 @@ h2 {
   .hero {
     padding: 10px 5% 0;
     gap: 1px;
-    /* margin-top: 50px; */
   }
 
   .content {

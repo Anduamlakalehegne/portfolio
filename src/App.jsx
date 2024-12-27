@@ -9,9 +9,11 @@ import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import { Circles } from 'react-loader-spinner'; 
 import { useState, useEffect } from 'react';
-import Particle from './Particle';
-
-
+import Particle from './Particle'; 
+import React from 'react';
+import { ThemeProvider } from './context/ThemeContext';
+import './styles/theme.css';
+ 
 function App() {
 
   const [isLoading, setIsLoading] = useState(true);
@@ -32,17 +34,19 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <Particle />
-      <Navbar />
-      <Hero />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Education />
-      <Contact />
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="app">
+        <Particle />
+        <Navbar />
+        <Hero />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+        <Contact />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

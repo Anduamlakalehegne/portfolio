@@ -8,7 +8,7 @@ import { experienceData } from '../../data/experienceData';
 const Experience = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: ref, 
     offset: ["start end", "end start"]
   });
 
