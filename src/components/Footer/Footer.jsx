@@ -94,8 +94,6 @@ const Footer = () => {
             <motion.a 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              target="_blank"  // Added target="_blank" to open the link in a new tab
-              rel="noopener noreferrer"  // Added rel="noopener noreferrer" for security
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.5 }}
