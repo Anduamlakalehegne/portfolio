@@ -51,47 +51,34 @@ const Hero = () => {
   };
 
   useEffect(() => {
+    console.log('isInView:', isInView); // Log the in-view status
     if (isInView) {
-      controls.start({
-        scale: 1,
-        opacity: 1,
-        transition: {
-          duration: 0.8,
-          ease: [0.6, 0.01, -0.05, 0.95]
-        }
-      });
+      console.log('Animation started'); // Log when animation starts
+      controls.start('show'); // Trigger the show animation
     } else {
-      controls.start({
-        scale: 0.5,
-        opacity: 0,
-        transition: {
-          duration: 0.4
-        }
-      });
+      console.log('Animation stopped'); // Log when animation stops
+      controls.start('hidden'); // Reset to hidden state when not in view
     }
   }, [isInView, controls]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
+    show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
+        staggerChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-      },
-    },
+    hidden: { y: 30, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.5 } },
+  };
+
+  const imageVariants = {
+    hidden: { scale: 1 }, // Maintain original scale
+    show: { scale: 1 }, // Maintain original scale
   };
 
   return (
@@ -102,8 +89,6 @@ const Hero = () => {
         style={{ y: imageY, opacity: imageOpacity }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={controls}
       >
         <motion.div
           className={styles.card}
@@ -119,10 +104,11 @@ const Hero = () => {
           }}
         >
           <div className={styles.imageWrapper}>
-            <img
+            <motion.img
               className={styles.profileImage}
               src={img}
               alt="Anduamlak Alehegne"
+              variants={imageVariants}
             />
           </div>
         </motion.div>

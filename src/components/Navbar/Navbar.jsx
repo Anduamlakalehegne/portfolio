@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaSun, FaMoon, FaGithub } from 'react-icons/fa';
-import { useTheme } from '../../context/ThemeContext';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isDarkMode, toggleTheme } = useTheme();
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('');
   const sidebarRef = useRef(null);
 
@@ -53,6 +52,7 @@ const Navbar = () => {
   }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
   const menuItems = [
     { href: "#about", label: "About" },
@@ -100,9 +100,9 @@ const Navbar = () => {
           >Github Profile
           </a>
         </button>
-        <button className={styles.darkModeToggle} onClick={toggleTheme}>
+        {/* <button className={styles.darkModeToggle} onClick={toggleDarkMode}>
           {isDarkMode ? <FaSun /> : <FaMoon />}
-        </button>
+        </button> */}
         <button className={styles.menuToggle} onClick={toggleMenu}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>

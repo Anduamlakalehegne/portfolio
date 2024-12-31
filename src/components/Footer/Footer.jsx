@@ -8,7 +8,7 @@ const Footer = () => {
 
   const { scrollYProgress } = useScroll({
     target: footerRef,
-    offset: ["start end", "end start"] 
+    offset: ["start end", "end start"]
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);

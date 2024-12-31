@@ -11,7 +11,7 @@ export default function Particle() {
     }).then(() => {
       setInit(true);
     });
-  }, []); 
+  }, []);
 
   const particlesLoaded = (container) => {
   };

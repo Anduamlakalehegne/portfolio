@@ -3,28 +3,26 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background-color: var(--nav-bg);
+  background-color: var(--bg-color);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
   transition: background-color 0.3s ease;
 }
 
 .logo {
   font-size: 1.3rem;
   font-weight: bold;
-  color: var(--text-primary);
+  color: var(--text-color);
 }
 
 .bracket {
-  color: var(--accent-primary);
+  color: var(--primary-color);
 }
 
 .slash {
-  color: var(--accent-primary);
+  color: var(--primary-color);
   margin: 0 0.2rem;
 }
 
@@ -34,18 +32,18 @@
 }
 
 .desktopMenu a {
-  color: var(--text-primary);
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1rem;
-  transition: all 0.3s;
+  transition: color 0.3s, background-color 0.3s;
   padding: 0.3rem 0.7rem;
   border-radius: 0.5rem;
 }
 
 .desktopMenu a:hover,
 .desktopMenu a.active {
-  color: var(--accent-primary);
-  background-color: var(--hover-bg);
+  color: var(--primary-color);
+  background-color: var(--active-bg-color);
 }
 
 .buttons {
@@ -75,18 +73,15 @@
 .menuToggle {
   background: none;
   border: none;
-  color: var(--text-primary);
-  font-size: 1.2rem;
+  color: var(--text-color);
+  font-size: 1.5rem;
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: all 0.3s ease;
+  transition: color 0.3s;
 }
 
 .darkModeToggle:hover,
 .menuToggle:hover {
-  color: var(--accent-primary);
-  background-color: var(--hover-bg);
+  color: var(--primary-color);
 }
 
 .menuToggle {
@@ -95,8 +90,6 @@
 
 .mobileMenu {
   display: none;
-  background-color: var(--bg-secondary);
-  border-left: 1px solid var(--border-color);
 }
 
 @media (max-width: 768px) {
@@ -112,7 +105,7 @@
   .logo {
     font-size: 0.9rem;
     font-weight: bold;
-    color: var(--text-primary);
+    color: var(--text-color);
   }
 
   .menuToggle {
@@ -127,6 +120,7 @@
     right: 0;
     bottom: 0;
     width: 250px;
+    background-color: #1a1b26;
     padding: 3rem 1rem 2rem 1rem;
     box-shadow: -4px 0 6px rgba(0, 0, 0, 0.3);
     gap: 0.5rem;
@@ -150,12 +144,12 @@
   }
 
   .closeButton:hover {
-    color: var(--accent-primary);
+    color: var(--primary-color);
     opacity: 1;
   }
 
   .mobileMenu a {
-    color: var(--text-primary);
+    color: #fff;
     text-decoration: none;
     font-size: 1rem;
     padding: 0.75rem 1rem;
@@ -166,9 +160,9 @@
 
   .mobileMenu a:hover,
   .mobileMenu a.active {
-    color: var(--accent-primary);
+    color: #fff;
     opacity: 1;
-    background-color: var(--hover-bg);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .mobileGithubButton {

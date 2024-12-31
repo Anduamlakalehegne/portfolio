@@ -11,7 +11,7 @@ const Projects = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: false,
-    threshold: 0.1, 
+    threshold: 0.1,
   });
 
   const { scrollYProgress } = useScroll({

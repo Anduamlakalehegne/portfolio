@@ -8,7 +8,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     email: '',
     name: '',
-    subject: '', 
+    subject: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
