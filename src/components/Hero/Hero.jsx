@@ -77,8 +77,8 @@ const Hero = () => {
   };
 
   const imageVariants = {
-    hidden: { scale: 1 }, // Maintain original scale
-    show: { scale: 1 }, // Maintain original scale
+    hidden: { scale: 0.8, opacity: 0 }, // Start slightly zoomed out
+    show: { scale: 1, opacity: 1, transition: { duration: 0.5 } }, // Zoom in to original size
   };
 
   return (
@@ -109,6 +109,8 @@ const Hero = () => {
               src={img}
               alt="Anduamlak Alehegne"
               variants={imageVariants}
+              initial="hidden"
+              animate={controls}
             />
           </div>
         </motion.div>

@@ -7,12 +7,12 @@ export const skillsData = [
         "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
       },
       {
-        "name": "Redux",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg"
-      },
-      {
         "name": "Next.js",
         "icon": "https://cdn.worldvectorlogo.com/logos/nextjs-2.svg"
+      },
+      {
+        "name": "Redux",
+        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg"
       },
       {
         "name": "HTML",
