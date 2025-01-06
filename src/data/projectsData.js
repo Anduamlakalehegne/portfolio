@@ -22,7 +22,7 @@ export const projectsData = [
     image: website, 
     category: "BANKING WEBSITE", 
     liveLink: "http://www.wegagen.com/", 
-    technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "MongoDB", "Strapi"]
+    technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "MongoDB", "Strapi", "Framer Motion"]
   },
   {
     title: "EIFDDA Official Website",
@@ -31,7 +31,7 @@ export const projectsData = [
     category: "NGO WEBSITE",
     githubLink: "https://github.com/YourRepo/eifdda-website", 
     liveLink: "http://eifdda.org", 
-    technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js"]
+    technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "Framer Motion"]
   },
   {
     title: "Banking Daily Operations Report Dashboard",
@@ -58,8 +58,8 @@ export const projectsData = [
     title: "Project Management Tool",
     description: "Our Project Management Tool is designed to streamline the process of managing tasks, teams, and projects. It offers comprehensive features such as task tracking, progress monitoring, team collaboration, and deadline management. The tool provides customizable workflows to fit different project types, enabling teams to work efficiently and meet deadlines. It includes a powerful dashboard for tracking the status of ongoing tasks, setting priorities, and ensuring that all team members stay on the same page. With real-time updates and notifications, the tool ensures that every change and decision is communicated instantly. Additionally, it integrates with various third-party tools such as Slack, Google Calendar, and GitHub, making it a one-stop solution for project management needs. The platform also includes analytics to track team performance and project outcomes, allowing managers to identify bottlenecks and optimize workflows for better productivity.",
     image: pmt,
-    category: "WEB APP'S",
-    githubLink: "https://github.com/Anduamlakalehegne/Project-Management-tool", 
+    category: "WEB APP'S", 
+    githubLink: "https://github.com/Anduamlakalehegne/Project-Management-tool",  
     technologies: ["React.JS", "Node.JS", "MongoDB", "Express.JS", "Redux", "Material-UI","JWT",]
   },
   {
