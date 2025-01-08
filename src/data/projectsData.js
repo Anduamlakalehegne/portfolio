@@ -14,7 +14,7 @@ export const projectsData = [
     description: "The 'Talk To The CEO' project aims to create a platform where customers can communicate directly with the CEO of the bank. This project includes both frontend and backend development, API integrations, and OTP validation for secure user authentication.",
     image: ceo,
     category: "MACHINE LEARNING",
-    technologies: ["React.JS", "TypeScript", "Next.JS", "Node.JS", "MongoDB", "Express.JS","JWT","Material-UI", "Email.JS", "Socket.IO" ]
+    technologies: ["React.JS", "TypeScript", "Next.JS", "NodeJS","NextJS", "MongoDB", "Express.JS","JWT","Material-UI", "Email.JS", "Socket.IO" ]
   },
   {
     title: "Wegagen Bank Official Website",
@@ -22,7 +22,7 @@ export const projectsData = [
     image: website, 
     category: "BANKING WEBSITE", 
     liveLink: "http://www.wegagen.com/", 
-    technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "MongoDB", "Strapi", "Framer Motion"]
+    technologies: ["HTML", "CSS", "JavaScript", "React.js", "NodeJS", "Express.js", "MongoDB", "Strapi", "Framer Motion"]
   },
   {
     title: "EIFDDA Official Website",
@@ -31,28 +31,28 @@ export const projectsData = [
     category: "NGO WEBSITE",
     githubLink: "https://github.com/YourRepo/eifdda-website", 
     liveLink: "http://eifdda.org", 
-    technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "Framer Motion"]
+    technologies: ["HTML", "CSS", "JavaScript", "React.js", "NodeJS", "Express.js", "Framer Motion"]
   },
   {
     title: "Banking Daily Operations Report Dashboard",
     description: "Our Banking Daily Operations Report Dashboard is a comprehensive solution designed to provide an in-depth analysis of various banking operations in real-time. It features detailed tabs for Retail Operations, Finance, Credit Operations, and Digital Operations, each offering critical insights into the bank's performance. The Retail Operations tab tracks deposit growth and total deposits, segmented by region, district, and product type, with flexible time filtering options (weekly, monthly, quarterly, and yearly). The Finance tab monitors key financial metrics, including the number of shareholders, paid-up capital, and cash position, with detailed breakdowns by region, district, and product type. The Credit Operations tab focuses on daily loan disbursements, collections, and outstanding loans. The Digital Operations tab provides transaction data for USSD, mobile, ATM, and POS operations. Additionally, the dashboard includes sections to display the total number of customers, employees, branches, ATMs, agents, and POS terminals, with a button to display the daily exchange rate. This dashboard ensures bank management has all the operational data they need at their fingertips, enabling quick, data-driven decision-making.",
     image: dor, 
     category: "BANKING SOLUTIONS",
-    technologies: ["React.js", "TypeScript", "Next.JS", "Node.js", "Express.js", "Chart.js", "D3.js", "MongoDB", "Redux", "Material-UI", "Oracle DB"]
+    technologies: ["React.js", "TypeScript", "Next.JS", "Node.js", "NestJS", "Express.js", "Chart.js", "D3.js", "MongoDB", "Redux", "Material-UI", "Oracle DB"]
   },
   {
     title: "Related Party System",
     description: "The Related Party System is a comprehensive solution designed to ensure compliance with the National Bank of Ethiopia (NBE) directives, specifically Dir. No. SBB 053/12. The system identifies loans and advances that have been approved exceptionally by the approving committee for related parties of the bank. It helps track these transactions, ensuring they are properly recorded and reported. The system generates real-time reports to provide visibility on related party transactions and loans, which are critical for the bank's executive leadership team. This information is used for strategic planning, risk management, and decision-making, ensuring the bank operates transparently and in alignment with regulatory requirements.",
     image: related, 
     category: "BANKING COMPLIANCE SYSTEMS",
-    technologies: ["React.js", "TypeScript", "Next.JS",  "Node.js", "Express.js", "MongoDB", "Redux", "Material-UI"]
+    technologies: ["React.js", "TypeScript", "Next.JS",  "NodeJS", "Express.js", "MongoDB", "Redux", "Material-UI"]
   },
   {
     title: "Clinic Management System",
     description: "Our Clinic Management System is an all-in-one solution designed to streamline and automate the day-to-day operations of clinics and healthcare facilities. It enables clinics to manage patient appointments, medical records, billing, and staff efficiently. The system allows patients to book appointments online, while the clinic staff can track patient history, treatments, and prescriptions in a secure, digital environment. Key features include a patient portal for easy access to medical records, automated reminders for upcoming appointments, and real-time updates for both doctors and patients. The system integrates with laboratory and pharmacy management tools, ensuring seamless coordination for lab tests and medication prescriptions. Additionally, the platform provides advanced reporting features for clinic management, helping track financials, inventory, and operational performance. With a focus on security, the system ensures compliance with healthcare data protection regulations, providing a secure platform for managing sensitive patient information.",
     image: clinic ,
     category: "HEALTHCARE SOLUTIONS",
-    technologies: ["React.JS", "Node.JS", "MongoDB", "Express.JS", "JWT", "Material-UI", "MySQL"]
+    technologies: ["React.JS", "NodeJS", "MongoDB", "Express.JS", "JWT", "Material-UI", "MySQL"]
   },
   {
     title: "Project Management Tool",
@@ -60,7 +60,7 @@ export const projectsData = [
     image: pmt,
     category: "WEB APP'S", 
     githubLink: "https://github.com/Anduamlakalehegne/Project-Management-tool",  
-    technologies: ["React.JS", "Node.JS", "MongoDB", "Express.JS", "Redux", "Material-UI","JWT",]
+    technologies: ["React.JS", "NodeJS", "MongoDB", "Express.JS", "Redux", "Material-UI","JWT",]
   },
   {
     title: "Fraud Management System",
@@ -68,7 +68,7 @@ export const projectsData = [
     image: fraud, 
     category: "WEB APP'S",
     githubLink: "https://github.com/Anduamlakalehegne/Fraud-Management-System", 
-    technologies: ["React.JS", "Node.JS", "MongoDB", "Express.JS","JWT",]
+    technologies: ["React.JS", "NodeJS", "MongoDB", "Express.JS","JWT",]
   },
   {
     title: "Bazra Tracker ",
@@ -77,7 +77,7 @@ export const projectsData = [
     category: "WEB APP'S",
     githubLink: "https://github.com/BazraTech/bazraTech",
     liveLink: " http://bazralogistics.com/",
-    technologies: ["React.JS", "PostgreSQL", "Node.JS", "Express.JS", "Redux", "React Flow","JWT",]
+    technologies: ["React.JS", "PostgreSQL", "NodeJS", "Express.JS", "Redux", "React Flow","JWT",]
   },
   
 ];
