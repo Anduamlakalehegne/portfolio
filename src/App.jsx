@@ -10,10 +10,18 @@ import Footer from './components/Footer/Footer';
 import { Circles } from 'react-loader-spinner'; 
 import { useState, useEffect } from 'react';
 import Particle from './Particle';
-
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [visitorCount, setVisitorCount] = useState(0);
 
+  useEffect(() => {
+    fetch('/count')
+      .then(response => response.json())
+      .then(data => setVisitorCount(data.count))
+      .catch(error => console.error("Error fetching visitor count:", error));
+  }, []);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
