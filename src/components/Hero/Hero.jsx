@@ -81,6 +81,10 @@ const Hero = () => {
     show: { scale: 1, opacity: 1, transition: { duration: 0.5 } }, // Zoom in to original size
   };
 
+  const handleDownloadResume = () => {
+  window.open('https://drive.google.com/uc?export=download&id=14eqzGmsCGqJ8Lg3rMyNFbZfdzu930U6c', '_blank');
+};
+
   return (
     <section ref={ref} className={styles.hero} id="about">
       <motion.div
@@ -138,9 +142,15 @@ const Hero = () => {
           From crafting seamless front-end interfaces to developing robust back-end systems, I bring ideas
           to life with clean, efficient code. Let's turn your vision into reality!
         </motion.p>
-        <motion.button className={styles.resumeButton} variants={itemVariants}>
-          Download Resume
-        </motion.button>
+        <motion.button 
+        className={styles.resumeButton} 
+        variants={itemVariants}
+        onClick={handleDownloadResume}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Download Resume
+      </motion.button>
       </motion.div>
     </section>
   );
