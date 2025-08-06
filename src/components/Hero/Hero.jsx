@@ -81,9 +81,19 @@ const Hero = () => {
     show: { scale: 1, opacity: 1, transition: { duration: 0.5 } }, // Zoom in to original size
   };
 
-  const handleDownloadResume = () => {
-  window.open('https://drive.google.com/uc?export=download&id=14eqzGmsCGqJ8Lg3rMyNFbZfdzu930U6c', '_blank');
-};
+   const handleDownloadResume = () => {
+    // Google Drive direct download link (modified from the view link)
+    const fileId = '14eqzGmsCGqJ8Lg3rMyNFbZfdzu930U6c';
+    const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+    
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = 'Anduamlak_Alehegne_Resume.pdf'; // Set the default filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section ref={ref} className={styles.hero} id="about">
