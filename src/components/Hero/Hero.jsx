@@ -148,19 +148,39 @@ const Hero = () => {
           <span className={styles.highlight}>Full-Stack Developer</span>
         </motion.div>
         <motion.p className={styles.description} variants={itemVariants}>
-          I specialize in building dynamic, user-friendly web applications using the latest technologies.
-          From crafting seamless front-end interfaces to developing robust back-end systems, I bring ideas
-          to life with clean, efficient code. Let's turn your vision into reality!
+          I design and ship performant, maintainable web apps with React and Node.
+          Recently: improved load times by up to 40% and supported 50k+ monthly users.
         </motion.p>
-        <motion.button 
-        className={styles.resumeButton} 
-        variants={itemVariants}
-        onClick={handleDownloadResume}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Download Resume
-      </motion.button>
+        <motion.ul
+          variants={itemVariants}
+          style={{ listStyle: 'none', padding: 0, margin: '0 0 16px 0', display: 'grid', gap: 8 }}
+        >
+          <li>• Product-focused: problem → solution → measurable impact</li>
+          <li>• Strong across UI, APIs, data, and CI/CD</li>
+          <li>• Collaborates well; ships quickly and reliably</li>
+        </motion.ul>
+        <motion.div
+          variants={itemVariants}
+          style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}
+        >
+          <motion.button 
+            className={styles.resumeButton} 
+            onClick={handleDownloadResume}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Download Resume
+          </motion.button>
+          <motion.a
+            href="#contact"
+            className={styles.resumeButton}
+            style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Contact Me
+          </motion.a>
+        </motion.div>
       </motion.div>
     </section>
   );

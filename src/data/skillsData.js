@@ -38,10 +38,10 @@ export const skillsData = [
         "name": "Tailwind CSS",
         "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg"
       },
-      {
-        "name": "Three.js",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg"
-      },
+      // {
+      //   "name": "Three.js",
+      //   "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg"
+      // },
       {
         "name": "Socket.IO",
         "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/socketio/socketio-original.svg"

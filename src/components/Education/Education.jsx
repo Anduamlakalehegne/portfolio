@@ -32,7 +32,7 @@ const Education = () => {
         viewport={{ once: false, amount: 0.5 }}
         transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
       >
-        My education has been a journey of self-discovery and growth. My educational details are as follows.
+        Relevant education and training that supports my applied work — focusing on foundations and notable outcomes.
       </motion.p>
 
       <VerticalTimeline lineColor="#646cff">
@@ -61,7 +61,7 @@ const Education = () => {
               borderRight: '10px solid rgba(23, 23, 33, 0.9)',
               boxShadow: 'rgba(23, 92, 230, 0.15) 0px 1px 24px',
             }}
-          >
+            >
             <motion.div
               className={styles.cardContent}
               initial={{ opacity: 0, y: 20 }}
@@ -81,6 +81,13 @@ const Education = () => {
                 </div>
               </div>
               <p className={styles.description}>{exp.description}</p>
+              {Array.isArray(exp.achievements) && exp.achievements.length > 0 && (
+                <ul style={{ margin: '8px 0 0 16px' }}>
+                  {exp.achievements.map((a, ai) => (
+                    <li key={ai} style={{ marginBottom: 4 }}>{a}</li>
+                  ))}
+                </ul>
+              )}
               <motion.div
                 className={styles.skills}
                 initial={{ opacity: 0 }}
@@ -100,6 +107,27 @@ const Education = () => {
                   </motion.span>
                 ))}
               </motion.div>
+              {Array.isArray(exp.metrics) && exp.metrics.length > 0 && (
+                <motion.div
+                  className={styles.skills}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                >
+                  {exp.metrics.map((m, mi) => (
+                    <motion.span
+                      key={mi}
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: false, amount: 0.5 }}
+                      transition={{ duration: 0.3, delay: 0.2 + mi * 0.1 }}
+                    >
+                      {m}
+                    </motion.span>
+                  ))}
+                </motion.div>
+              )}
             </motion.div>
           </VerticalTimelineElement>
         ))}

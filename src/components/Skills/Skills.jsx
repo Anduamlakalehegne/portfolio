@@ -158,8 +158,18 @@ const Skills = () => {
         }}
         transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
       >
-        Here are some of my skills on which I have been working on for the past 3+ years.
+        Practical capabilities across UI, APIs, data, and CI/CD — focused on building
+        performant, maintainable systems. Explore examples in my projects below.
       </motion.p>
+      <motion.div
+        variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        style={{ display: 'flex', gap: 12, marginBottom: 16, flexWrap: 'wrap' }}
+      >
+        <a href="#projects" className={styles.subtitle} style={{ textDecoration: 'none' }}>
+          → See projects using these skills
+        </a>
+      </motion.div>
 
       <motion.div 
         className={styles.skillsContainer}

@@ -13,6 +13,8 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [botField, setBotField] = useState("");
 
   const sectionRef = useRef(null);
   const formRef = useRef(null);
@@ -37,17 +39,44 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
+      // Honeypot: if filled, silently succeed
+      if (botField && botField.trim().length > 0) {
+      setSubmitStatus('success');
+      setFormData({ email: '', name: '', subject: '', message: '' });
+      setErrorMessage(null);
+      setBotField('');
+      return;
+      }
+      
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_edgi1pw';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_vr85hwn';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'lkbudMZAJM8aHvnY2';
+
       await emailjs.sendForm(
-        'service_edgi1pw',
-        'template_vr85hwn',
+        serviceId,
+        templateId,
         formRef.current,
-        'lkbudMZAJM8aHvnY2'
+        publicKey
       );
       setSubmitStatus('success');
       setFormData({ email: '', name: '', subject: '', message: '' });
+      setErrorMessage(null);
+      setBotField('');
     } catch (error) {
       console.error('Error sending email:', error);
+      
+      // Handle specific error types
+      let errorMessage = 'Failed to send message. Please try again.';
+      if (error.status === 412) {
+        errorMessage = 'Email service needs reconnection. Please contact me directly at anduamlakalehegne@gmail.com';
+      } else if (error.status === 400) {
+        errorMessage = 'Invalid form data. Please check your inputs.';
+      } else if (error.status === 0 || !navigator.onLine) {
+        errorMessage = 'No internet connection. Please check your network.';
+      }
+      
       setSubmitStatus('error');
+      setErrorMessage(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -120,6 +149,17 @@ const Contact = () => {
             }}
           >
             <form ref={formRef} onSubmit={handleSubmit}>
+              {/* Honeypot field */}
+              <input
+                type="text"
+                name="company"
+                value={botField}
+                onChange={(e) => setBotField(e.target.value)}
+                autoComplete="off"
+                tabIndex="-1"
+                aria-hidden="true"
+                style={{ position: 'absolute', left: '-10000px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }}
+              />
               <motion.div 
                 className={styles.formGroup}
                 variants={{
@@ -127,6 +167,16 @@ const Contact = () => {
                   visible: { y: 0, opacity: 1 }
                 }}
               >
+                 <input
+                type="text"
+                name="company"
+                value={botField}
+                onChange={(e) => setBotField(e.target.value)}
+                autoComplete="off"
+                tabIndex="-1"
+                aria-hidden="true"
+                style={{ position: 'absolute', left: '-10000px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }}
+              />
                 <input
                   type="email"
                   name="email"
@@ -283,7 +333,7 @@ const Contact = () => {
                     <line x1="15" y1="9" x2="9" y2="15"></line>
                     <line x1="9" y1="9" x2="15" y2="15"></line>
                   </motion.svg>
-                  <span>Failed to send message. Please try again.</span>
+                  <span>{errorMessage || 'Failed to send message. Please try again.'}</span>
                 </>
               )}
             </motion.div>

@@ -37,7 +37,7 @@ const Experience = () => {
         viewport={{ once: false, amount: 0.5 }}
         transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
       >
-        My work experience as a software engineer, working at various companies and on diverse projects.
+        Selected roles where I delivered measurable outcomes — scalability, performance, and developer velocity.
       </motion.p>
 
       <VerticalTimeline lineColor='#646cff'>
@@ -68,7 +68,7 @@ const Experience = () => {
               borderRight: '10px solid rgba(23, 23, 33, 0.9)',
               boxShadow: 'rgba(23, 92, 230, 0.15) 0px 1px 24px',
             }}
-          >
+            >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -78,6 +78,13 @@ const Experience = () => {
               <h3>{exp.role}</h3>
               <h4>{exp.company}</h4>
               <p className={styles.description}>{exp.description}</p>
+                {Array.isArray(exp.achievements) && exp.achievements.length > 0 && (
+                  <ul style={{ margin: '8px 0 0 16px' }}>
+                    {exp.achievements.map((item, i) => (
+                      <li key={i} style={{ marginBottom: 4 }}>{item}</li>
+                    ))}
+                  </ul>
+                )}
               <motion.div 
                 className={styles.skills}
                 initial={{ opacity: 0 }}
@@ -97,6 +104,27 @@ const Experience = () => {
                   </motion.span>
                 ))}
               </motion.div>
+                {Array.isArray(exp.metrics) && exp.metrics.length > 0 && (
+                  <motion.div 
+                    className={styles.skills}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: false, amount: 0.5 }}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                  >
+                    {exp.metrics.map((metric, mi) => (
+                      <motion.span 
+                        key={mi}
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: false, amount: 0.5 }}
+                        transition={{ duration: 0.3, delay: 0.2 + mi * 0.1 }}
+                      >
+                        {metric}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+                )}
             </motion.div>
           </VerticalTimelineElement>
         ))}

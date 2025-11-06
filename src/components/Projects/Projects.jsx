@@ -69,10 +69,19 @@ const Projects = () => {
         viewport={{ once: false, amount: 0.5 }}
         transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
       >
-        I have worked on diverse projects across multiple domains, developing both frontend and backend solutions.
-        My experience includes building interactive web applications, optimizing performance, and collaborating
-        with teams to deliver impactful, user-centric products. Some of them are listed below
+        Selected work focused on measurable outcomes: faster loads, higher conversion, and scalable services.
       </motion.p>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false, amount: 0.5 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
+        style={{ marginBottom: 16 }}
+      >
+        <a href="https://github.com/Anduamlakalehegne" target="_blank" rel="noopener noreferrer" className={styles.subtitle} style={{ textDecoration: 'none' }}>
+          → View more on GitHub
+        </a>
+      </motion.div>
 
       <motion.div
         className={styles.projectsGrid}
@@ -119,6 +128,23 @@ const Projects = () => {
             <div className={styles.projectInfo}>
               <h3>{project.title}</h3>
               <p>{project.description.slice(0, 100)}{project.description.length > 100 ? '...' : ''}</p>
+
+              {Array.isArray(project.metrics) && project.metrics.length > 0 && (
+                <div className={styles.techStack}>
+                  {project.metrics.map((m, mi) => (
+                    <motion.span
+                      key={mi}
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: false, amount: 0.5 }}
+                      transition={{ duration: 0.3, delay: mi * 0.08 }}
+                      whileHover={{ scale: 1.08 }}
+                    >
+                      {m}
+                    </motion.span>
+                  ))}
+                </div>
+              )}
 
               <div className={styles.techStack}>
                 {project.technologies.map((tech, techIndex) => (
@@ -184,6 +210,13 @@ const Projects = () => {
               >
                 {selectedProject.description}
               </motion.p>
+              {Array.isArray(selectedProject.highlights) && selectedProject.highlights.length > 0 && (
+                <ul style={{ margin: '8px 0 0 16px' }}>
+                  {selectedProject.highlights.map((h, hi) => (
+                    <li key={hi} style={{ marginBottom: 4 }}>{h}</li>
+                  ))}
+                </ul>
+              )}
               <motion.div
                 className={styles.techStack}
                 initial={{ opacity: 0 }}

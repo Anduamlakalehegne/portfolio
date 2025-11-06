@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import styles from './Footer.module.css';
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -113,9 +113,10 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           {[ 
-            { Icon: FaFacebook, label: 'Facebook', href: 'https://web.facebook.com/anduamlak.alehegne.79' },
+            { Icon: FaGithub, label: 'GitHub', href: 'https://github.com/Anduamlakalehegne' },
             { Icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/anduaml-alehegne-4632aa219/' },
-            { Icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/na.ndu_27/', target: "_blank", rel: "noopener noreferrer" },
+            { Icon: FaFacebook, label: 'Facebook', href: 'https://web.facebook.com/anduamlak.alehegne.79' },
+            { Icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/na.ndu_27/' },
           ].map(({ Icon, label, href }, index) => (
             <motion.a 
               key={label} 
@@ -141,7 +142,7 @@ const Footer = () => {
           viewport={{ once: false, amount: 0.5 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          © 2025 Anduamlak Alehegne. All rights reserved.
+          © 2025 Anduamlak Alehegne — Open to Full‑Stack roles.
         </motion.p>
       </motion.div>
     </motion.footer>
