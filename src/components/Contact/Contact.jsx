@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence, useAnimation } from 'framer-motion';
+import { motion, AnimatePresence, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import emailjs from 'emailjs-com';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 import styles from './Contact.module.css';
 
 const Contact = () => {
@@ -16,22 +17,11 @@ const Contact = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [botField, setBotField] = useState("");
 
-  const sectionRef = useRef(null);
   const formRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
+  const [sectionRef, isInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
   });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.8, 1, 1, 0.8]);
-  const y = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [100, 0, 0, -100]);
-
-  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-  const scaleSpring = useSpring(scale, springConfig);
-  const ySpring = useSpring(y, springConfig);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,13 +29,13 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      // Honeypot: if filled, silently succeed
+      // Honeypot: if filled by a bot, silently exit
       if (botField && botField.trim().length > 0) {
-      setSubmitStatus('success');
-      setFormData({ email: '', name: '', subject: '', message: '' });
-      setErrorMessage(null);
-      setBotField('');
-      return;
+        setSubmitStatus('success');
+        setFormData({ email: '', name: '', subject: '', message: '' });
+        setErrorMessage(null);
+        setBotField('');
+        return;
       }
       
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_edgi1pw';
@@ -65,18 +55,17 @@ const Contact = () => {
     } catch (error) {
       console.error('Error sending email:', error);
       
-      // Handle specific error types
-      let errorMessage = 'Failed to send message. Please try again.';
-      if (error.status === 412) {
-        errorMessage = 'Email service needs reconnection. Please contact me directly at anduamlakalehegne@gmail.com';
-      } else if (error.status === 400) {
-        errorMessage = 'Invalid form data. Please check your inputs.';
-      } else if (error.status === 0 || !navigator.onLine) {
-        errorMessage = 'No internet connection. Please check your network.';
+      let errorMsg = 'Failed to send message. Please contact me directly at anduamlakalehegne@gmail.com';
+      if (error?.status === 412) {
+        errorMsg = 'Email service needs reconnection. Please contact me directly at anduamlakalehegne@gmail.com';
+      } else if (error?.status === 400) {
+        errorMsg = 'Invalid form data. Please check your inputs.';
+      } else if (error?.status === 0 || !navigator.onLine) {
+        errorMsg = 'No internet connection. Please check your network.';
       }
       
       setSubmitStatus('error');
-      setErrorMessage(errorMessage);
+      setErrorMessage(errorMsg);
     } finally {
       setIsSubmitting(false);
     }
@@ -101,38 +90,32 @@ const Contact = () => {
   useEffect(() => {
     if (isInView) {
       formControls.start("visible");
-    } else {
-      formControls.start("hidden");
     }
   }, [isInView, formControls]);
 
   return (
-    <motion.section 
+    <section 
       id="contact" 
       className={styles.contact}
       ref={sectionRef}
-      style={{ opacity }}
     >
-      <motion.div
-        className={styles.contentWrapper}
-        style={{ scale: scaleSpring, y: ySpring }}
-      >
+      <div className={styles.contentWrapper}>
         <motion.h2
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, type: "spring" }}
         >
-          Contact
+          Get In Touch
         </motion.h2>
         <motion.p 
           className={styles.subtitle}
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.1, type: "spring" }}
         >
-          Feel free to reach out to me for any questions or opportunities!
+          Available for senior engineering roles, high-scale consulting, and contract projects. Let's build something exceptional!
         </motion.p>
 
         <div className={styles.contactContainer}>
@@ -144,15 +127,15 @@ const Contact = () => {
               hidden: { opacity: 0 },
               visible: { 
                 opacity: 1,
-                transition: { staggerChildren: 0.1, delayChildren: 0.3 }
+                transition: { staggerChildren: 0.1, delayChildren: 0.2 }
               }
             }}
           >
             <form ref={formRef} onSubmit={handleSubmit}>
-              {/* Honeypot field */}
+              {/* Single Honeypot field */}
               <input
                 type="text"
-                name="company"
+                name="company_trap"
                 value={botField}
                 onChange={(e) => setBotField(e.target.value)}
                 autoComplete="off"
@@ -167,16 +150,6 @@ const Contact = () => {
                   visible: { y: 0, opacity: 1 }
                 }}
               >
-                 <input
-                type="text"
-                name="company"
-                value={botField}
-                onChange={(e) => setBotField(e.target.value)}
-                autoComplete="off"
-                tabIndex="-1"
-                aria-hidden="true"
-                style={{ position: 'absolute', left: '-10000px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }}
-              />
                 <input
                   type="email"
                   name="email"
@@ -227,9 +200,10 @@ const Contact = () => {
               >
                 <textarea
                   name="message"
-                  placeholder="Message"
+                  placeholder="Your Message"
                   value={formData.message}
                   onChange={handleChange}
+                  rows={5}
                   required
                 />
               </motion.div>
@@ -237,110 +211,110 @@ const Contact = () => {
                 type="submit" 
                 className={styles.submitButton}
                 variants={{
-                  hidden: { scale: 0.8, opacity: 0 },
+                  hidden: { scale: 0.9, opacity: 0 },
                   visible: { scale: 1, opacity: 1 }
                 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : 'Send'}
+                {isSubmitting ? 'Sending Message...' : 'Send Message'}
               </motion.button>
             </form>
           </motion.div>
 
           <motion.div 
             className={styles.contactInfo}
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
           >
             <div className={styles.infoItem}>
-              <Mail size={24} />
-              <span>anduamlakalehegne@gmail.com</span>
+              <Mail size={22} color="#646cff" />
+              <a href="mailto:anduamlakalehegne@gmail.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                anduamlakalehegne@gmail.com
+              </a>
             </div>
             <div className={styles.infoItem}>
-              <Phone size={24} />
-              <span>+(251) 985233384</span>
+              <Phone size={22} color="#646cff" />
+              <a href="tel:+251985253384" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                +251 985 253 384
+              </a>
             </div>
             <div className={styles.infoItem}>
-              <MapPin size={24} />
-              <span>Bole</span>
+              <MapPin size={22} color="#646cff" />
+              <span>Addis Ababa, Bole · Ethiopia</span>
+            </div>
+            <div className={styles.infoItem}>
+              <Linkedin size={22} color="#646cff" />
+              <a href="https://www.linkedin.com/in/anduamlak-alehegne" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                linkedin.com/in/anduamlak-alehegne
+              </a>
+            </div>
+            <div className={styles.infoItem}>
+              <Github size={22} color="#646cff" />
+              <a href="https://github.com/Anduamlakalehegne" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                github.com/Anduamlakalehegne
+              </a>
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
       
       <AnimatePresence>
         {submitStatus && (
           <motion.div 
             className={`${styles.popup} ${styles[submitStatus]}`}
-            initial={{ opacity: 0, y: 50, scale: 0.3 }}
+            initial={{ opacity: 0, y: 30, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.3 }}
-            transition={{
-              duration: 0.4,
-              type: "spring",
-              stiffness: 260,
-              damping: 20
-            }}
+            exit={{ opacity: 0, y: 30, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
           >
-            <motion.div 
-              className={styles.popupContent}
-              initial={{ rotate: -10 }}
-              animate={{ rotate: 0 }}
-              transition={{ duration: 0.2, delay: 0.1 }}
-            >
+            <div className={styles.popupContent}>
               {submitStatus === 'success' ? (
                 <>
-                  <motion.svg
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#10b981"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </motion.svg>
-                  <span>Message sent successfully!</span>
+                  </svg>
+                  <span style={{ color: '#10b981', fontWeight: 600 }}>Message sent successfully!</span>
                 </>
               ) : (
                 <>
-                  <motion.svg
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#ef4444"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1, rotate: 180 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="15" y1="9" x2="9" y2="15"></line>
                     <line x1="9" y1="9" x2="15" y2="15"></line>
-                  </motion.svg>
-                  <span>{errorMessage || 'Failed to send message. Please try again.'}</span>
+                  </svg>
+                  <span>{errorMessage || 'Failed to send message. Please email me directly.'}</span>
                 </>
               )}
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.section>
+    </section>
   );
 };
 

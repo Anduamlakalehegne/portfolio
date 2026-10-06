@@ -84,6 +84,47 @@ h2 {
   background-color: var(--highlight-hover-color);
 }
 
+.outlineButton {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--highlight-color);
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.outlineButton:hover {
+  background-color: rgba(100, 108, 255, 0.15);
+  border-color: var(--highlight-hover-color);
+}
+
+.metricsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 1rem 0 1.5rem 0;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(100, 108, 255, 0.12);
+  border: 1px solid rgba(100, 108, 255, 0.35);
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #c7d2fe;
+}
+
 .imageContainer {
   position: relative;
   display: inline-block;

@@ -5,7 +5,6 @@ import { loadFull } from "tsparticles";
 export default function Particle() {
   const [init, setInit] = useState(false);
   useEffect(() => {
-    console.log("init");
     initParticlesEngine(async (engine) => {
       await loadFull(engine);
     }).then(() => {
@@ -13,8 +12,7 @@ export default function Particle() {
     });
   }, []);
 
-  const particlesLoaded = (container) => {
-  };
+  const particlesLoaded = () => {};
 
   return (
     <>
@@ -26,7 +24,7 @@ export default function Particle() {
             zIndex: 1,
           }}
           options={{
-            fpsLimit: 120,
+            fpsLimit: 60,
             interactivity: {
               events: {
                 onClick: {
@@ -55,9 +53,9 @@ export default function Particle() {
               },
               links: {
                 color: "#646cff",
-                distance: 100,
+                distance: 120,
                 enable: true,
-                opacity: 0.5,
+                opacity: 0.35,
                 width: 1,
               },
               move: {
@@ -67,15 +65,15 @@ export default function Particle() {
                   default: "bounce",
                 },
                 random: false,
-                speed: 1.5,
+                speed: 1.2,
                 straight: false,
               },
               number: {
                 density: {
                   enable: true,
-                  area: 80,
+                  area: 800,
                 },
-                value: 100,
+                value: 40,
               },
               opacity: {
                 value: 0.5,

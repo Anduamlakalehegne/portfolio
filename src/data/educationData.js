@@ -1,14 +1,16 @@
-
-
-import hawassa from '../assets/hawassa.jfif'
+import hawassa from '../assets/hawassa.jfif';
 
 export const educationData = [
   {
-    role: "Hawassa University",
-    company: "IT",
+    role: "BSc in Information Technology",
+    company: "Hawassa University",
     companyLogo: hawassa,
-    date: "Feb 2018 - June 2022",
-    description: "Completed a Bachelor's degree in Information Technology from Hawassa University, focusing on developing skills in software development, database management, and IT infrastructure. The program included hands-on experience and in-depth knowledge of modern web technologies, programming languages, and network systems.",
-    skills: ["Grade 3.54"]
-  },
+    date: "Feb 2018 - Jun 2022",
+    description: "Graduated with a Bachelor of Science in Information Technology (GPA 3.54). Focused on software engineering, distributed systems, database management systems (RDBMS), object-oriented programming, and computer networks.",
+    achievements: [
+      "Graduated with High Distinction (Cumulative GPA: 3.54 / 4.00)",
+      "Strong foundation in data structures, algorithms, relational databases, and enterprise software architecture."
+    ],
+    skills: ["Data Structures & Algorithms", "Database Design", "Software Architecture", "Web Engineering"]
+  }
 ];

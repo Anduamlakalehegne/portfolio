@@ -2,13 +2,14 @@ import React, { useRef, useEffect } from 'react';
 import styles from './Hero.module.css';
 import img from '../../assets/mesita21.jpg';
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useAnimation, useInView } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const Hero = () => {
   const ref = useRef(null);
   const imageRef = useRef(null); 
   const contentRef = useRef(null);
   const controls = useAnimation();
-  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -24,12 +25,13 @@ const Hero = () => {
     offset: ["start start", "end start"]
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.8, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.8, 0]);
 
   const handleMouseMove = (e) => {
+    if (!imageRef.current) return;
     const rect = imageRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -44,20 +46,14 @@ const Hero = () => {
     y.set(yPct);
   };
 
-  // const handleMouseEnter = () => setHovered(true);
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
   };
 
   useEffect(() => {
-    console.log('isInView:', isInView); // Log the in-view status
     if (isInView) {
-      console.log('Animation started'); // Log when animation starts
-      controls.start('show'); // Trigger the show animation
-    } else {
-      console.log('Animation stopped'); // Log when animation stops
-      controls.start('hidden'); // Reset to hidden state when not in view
+      controls.start('show');
     }
   }, [isInView, controls]);
 
@@ -66,30 +62,27 @@ const Hero = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 25, opacity: 0 },
     show: { y: 0, opacity: 1, transition: { duration: 0.5 } },
   };
 
   const imageVariants = {
-    hidden: { scale: 0.8, opacity: 0 }, // Start slightly zoomed out
-    show: { scale: 1, opacity: 1, transition: { duration: 0.5 } }, // Zoom in to original size
+    hidden: { scale: 0.85, opacity: 0 },
+    show: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
   };
 
-   const handleDownloadResume = () => {
-    // Google Drive direct download link (modified from the view link)
+  const handleDownloadResume = () => {
     const fileId = '14eqzGmsCGqJ8Lg3rMyNFbZfdzu930U6c';
     const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
-    
-    // Create a temporary anchor element
     const link = document.createElement('a');
     link.href = downloadUrl;
-    link.download = 'Anduamlak_Alehegne_Resume.pdf'; // Set the default filename
+    link.download = 'Anduamlak_Alehegne_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -110,7 +103,7 @@ const Hero = () => {
             rotateX,
             rotateY,
           }}
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.03 }}
           transition={{
             type: 'spring',
             stiffness: 400,
@@ -138,30 +131,33 @@ const Hero = () => {
         initial="hidden"
         animate={controls}
       >
-        <motion.h1 variants={itemVariants}>
-          Hello I'm
-        </motion.h1>
-        <motion.h2 variants={itemVariants}>
-          Anduamlak Alehegne
-        </motion.h2>
-        <motion.div className={styles.subtitle} variants={itemVariants}>
-          <span className={styles.highlight}>Full-Stack Developer</span>
+        <motion.div variants={itemVariants} className={styles.subtitle} style={{ marginBottom: '0.25rem', color: '#818cf8', fontSize: '1rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600 }}>
+          Senior Full-Stack Engineer
         </motion.div>
+        <motion.h1 variants={itemVariants} style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', lineHeight: 1.15, fontWeight: 800, margin: '0 0 0.5rem 0' }}>
+          Anduamlak Alehegne
+        </motion.h1>
+        
+        {/* Credibility badges */}
+        <motion.div className={styles.metricsRow} variants={itemVariants}>
+          <span className={styles.badge}>
+            🏆 CEO Recognition Award Winner
+          </span>
+          <span className={styles.badge}>
+            🏦 3.6M+ Users · 441+ Branches
+          </span>
+          <span className={styles.badge}>
+            ⚡ 800+ msgs/sec Kafka Pipeline
+          </span>
+        </motion.div>
+
         <motion.p className={styles.description} variants={itemVariants}>
-          I design and ship performant, maintainable web apps with React and Node.
-          Recently: improved load times by up to 40% and supported 50k+ monthly users.
+          4+ years architecting and scaling mission-critical web applications and distributed backend services. Proven track record in regulated banking environments delivering real-time operations dashboards, event-driven microservices, resilient APIs, and production Next.js & NestJS platforms.
         </motion.p>
-        <motion.ul
-          variants={itemVariants}
-          style={{ listStyle: 'none', padding: 0, margin: '0 0 16px 0', display: 'grid', gap: 8 }}
-        >
-          <li>• Product-focused: problem → solution → measurable impact</li>
-          <li>• Strong across UI, APIs, data, and CI/CD</li>
-          <li>• Collaborates well; ships quickly and reliably</li>
-        </motion.ul>
+
         <motion.div
           variants={itemVariants}
-          style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}
+          style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}
         >
           <motion.button 
             className={styles.resumeButton} 
@@ -172,14 +168,55 @@ const Hero = () => {
             Download Resume
           </motion.button>
           <motion.a
+            href="#projects"
+            className={styles.outlineButton}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            View Projects
+          </motion.a>
+          <motion.a
             href="#contact"
-            className={styles.resumeButton}
-            style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+            className={styles.outlineButton}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Contact Me
           </motion.a>
+        </motion.div>
+
+        {/* Quick links */}
+        <motion.div
+          variants={itemVariants}
+          style={{ display: 'flex', gap: 16, marginTop: 20, alignItems: 'center', fontSize: '1.25rem' }}
+        >
+          <a
+            href="https://github.com/Anduamlakalehegne"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#94a3b8', transition: 'color 0.2s' }}
+            title="GitHub Profile"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/anduamlak-alehegne"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#94a3b8', transition: 'color 0.2s' }}
+            title="LinkedIn Profile"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="mailto:anduamlakalehegne@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#94a3b8', transition: 'color 0.2s' }}
+            title="Email Me"
+          >
+            <FaEnvelope />
+          </a>
         </motion.div>
       </motion.div>
     </section>

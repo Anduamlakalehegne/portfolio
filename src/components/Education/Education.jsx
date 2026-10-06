@@ -20,7 +20,7 @@ const Education = () => {
       <motion.h2
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, type: "spring" }}
       >
         Education
@@ -29,7 +29,7 @@ const Education = () => {
         className={styles.subtitle}
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
       >
         Relevant education and training that supports my applied work — focusing on foundations and notable outcomes.
@@ -66,7 +66,7 @@ const Education = () => {
               className={styles.cardContent}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className={styles.cardHeader}>

@@ -1,168 +1,184 @@
 export const skillsData = [
   {
-    "title": "Frontend",
-    "skills": [
+    title: "Front-End",
+    skills: [
       {
-        "name": "React.js",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
+        name: "React.js",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
       },
       {
-        "name": "Next.js",
-        "icon": "https://cdn.worldvectorlogo.com/logos/nextjs-2.svg"
+        name: "Next.js",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg"
       },
       {
-        "name": "Redux",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg"
+        name: "TypeScript",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
       },
       {
-        "name": "HTML",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
+        name: "JavaScript (ES6+)",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
       },
       {
-        "name": "CSS",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
+        name: "Tailwind CSS",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg"
       },
       {
-        "name": "JavaScript",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+        name: "Shadcn / Radix",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
       },
       {
-        "name": "Material UI",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg"
+        name: "Redux Toolkit",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg"
       },
       {
-        "name": "TypeScript",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
-      },
-      {
-        "name": "Tailwind CSS",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg"
-      },
-      // {
-      //   "name": "Three.js",
-      //   "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg"
-      // },
-      {
-        "name": "Socket.IO",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/socketio/socketio-original.svg"
-      },
-      {
-        "name": "Jest",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/jest/jest-plain.svg"
+        name: "TanStack Query",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
       }
     ]
-  },  
+  },
   {
-    "title": "Backend",
-    "skills": [
+    title: "Back-End & APIs",
+    skills: [
       {
-        "name": "Node.js",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"
+        name: "Node.js",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"
       },
       {
-        "name": "Express.js",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg"
+        name: "NestJS",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-original.svg"
       },
       {
-        "name": "GraphQL",
-        "icon": "https://www.vectorlogo.zone/logos/graphql/graphql-icon.svg"
+        name: "Express.js",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg"
       },
       {
-        "name": "MySQL",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"
+        name: "GraphQL",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/graphql/graphql-plain.svg"
       },
       {
-        "name": "PostgreSQL",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
+        name: "RESTful APIs",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg"
       },
       {
-        "name": "MongoDB",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
-      },
-      {
-        "name": "SQLite",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg"
-      },
-      {
-        "name": "Strapi",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/strapi/strapi-original.svg"
-      },
-      {
-        "name": "Oracle Database",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg"
-      },
-      {
-        "name": "Stripe",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/stripe/stripe-original.svg"
+        name: "NextAuth & JWT",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/oauth/oauth-original.svg"
       }
     ]
-  },  
+  },
   {
-    title: "DevOps",
+    title: "Databases & ORMs",
+    skills: [
+      {
+        name: "PostgreSQL",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
+      },
+      {
+        name: "Oracle Database",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg"
+      },
+      {
+        name: "MongoDB",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
+      },
+      {
+        name: "MySQL",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"
+      },
+      {
+        name: "Prisma ORM",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/prisma/prisma-original.svg"
+      },
+      {
+        name: "Supabase",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/supabase/supabase-original.svg"
+      }
+    ]
+  },
+  {
+    title: "Architecture & Messaging",
+    skills: [
+      {
+        name: "Apache Kafka",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/apachekafka/apachekafka-original.svg"
+      },
+      {
+        name: "Debezium CDC",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/apache/apache-original.svg"
+      },
+      {
+        name: "Event-Driven Arch",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/networkx/networkx-original.svg"
+      },
+      {
+        name: "Microservices",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg"
+      },
+      {
+        name: "Message Queues",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/rabbitmq/rabbitmq-original.svg"
+      },
+      {
+        name: "SMPP Gateways",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg"
+      }
+    ]
+  },
+  {
+    title: "Cloud & Infrastructure",
     skills: [
       {
         name: "AWS",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg"
-      },
-      {
-        name: "Google Cloud",
-        icon: "https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg"
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
       },
       {
         name: "Docker",
         icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg"
       },
       {
-        name: "Jenkins",
-        icon: "https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg"
+        name: "Serverless",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg"
+      },
+      {
+        name: "Containerization",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg"
+      },
+      {
+        name: "Vercel",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg"
       },
       {
         name: "Nginx",
         icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg"
-      },
-      {
-        name: "Kubernetes",
-        icon: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg"
-      },
+      }
     ]
   },
   {
-    "title": "Others",
-    "skills": [
+    title: "Testing & DevOps",
+    skills: [
       {
-        "name": "Git",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg"
+        name: "Git & GitHub",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"
       },
       {
-        "name": "GitHub",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"
+        name: "CI/CD Actions",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/githubactions/githubactions-original.svg"
       },
       {
-        "name": "Netlify",
-        "icon": "https://www.vectorlogo.zone/logos/netlify/netlify-icon.svg"
+        name: "Jest & Cypress",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/jest/jest-plain.svg"
       },
       {
-        "name": "VS Code",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg"
+        name: "Postman",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postman/postman-original.svg"
       },
       {
-        "name": "Postman",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postman/postman-original.svg"
+        name: "Figma",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg"
       },
-      
-      // {
-      //   "name": "Thunder Client",
-      //   "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/code/code-original.svg"
-      // },
-      // {
-      //   "name": "cPanel",
-      //   "icon": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Cpanel_logo.png"
-      // },
       {
-        "name": "WordPress",
-        "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/wordpress/wordpress-original.svg"
+        name: "Webpack & Babel",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/webpack/webpack-original.svg"
       }
     ]
   }
-  
 ];

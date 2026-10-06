@@ -1,53 +1,88 @@
-# Source Code Directory (`src/`) 📂
+# Anduamlak Alehegne — Senior Full-Stack Engineer Portfolio 🚀
 
-This directory contains the source code for the application, built using React. It follows a component-based architecture to ensure maintainability and scalability. Below is an overview of the main folders and files:
+[![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-646CFF?style=for-the-badge&logo=react)](https://Anduamlakalehegne.github.io/my-portfolio)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/anduamlak-alehegne)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github)](https://github.com/Anduamlakalehegne)
 
-## Core Components 🚀
+> **Senior Full-Stack Engineer** with 4+ years of experience architecting and delivering high-performance, mission-critical web applications and distributed backend systems. Proven track record in regulated financial services: led frontend engineering for real-time banking operations dashboards serving **3.6M+ customers** across 441+ branches, designed an event-driven SMS notification pipeline processing **800+ messages/sec** with **Apache Kafka** and **Debezium CDC**, and recognized with an **Executive Commendation Award** from the CEO of Wegagen Bank.
 
-These are the foundational files that bootstrap and style the application:
+---
 
-*   **`App.css`**: 🎨 Global styles for the application, including theming and base styles.
-*   **`App.jsx`**: ⚛️ The main application component, serving as the root component and setting up the layout and routing of the application.
-*   **`main.jsx`**: 🚪 The entry point for the React application. It initializes the React environment and renders the main `App` component into the DOM.
-*   **`index.css`**: 🌐 Base styles for the application, often including resets and default settings.
-*   **`Particle.jsx`**: ✨ Component responsible for rendering the interactive background particle effect, enhancing the visual appeal.
+## 🏆 Key Achievements & Milestones
 
-## Assets 🖼️
+- 🎖️ **CEO Recognition for Engineering Excellence:** Formally commended by Dr. Aklilu Wubet (PhD), Chief Executive Officer of Wegagen Bank, for exceptional contributions to the design, development, and deployment of the **FX Queue Management System**.
+- 🏦 **Enterprise Scale:** Engineered banking dashboards and systems serving **3,600,000+ customers**, **5,400+ employees**, and **441+ branches**.
+- ⚡ **High-Throughput Pipelines:** Built an event-driven transaction notification engine delivering **800+ messages per second** using Apache Kafka, Debezium Change Data Capture (CDC) from Oracle DB, and containerized Node.js microservices routed to SMPP telecom gateways.
+- 🛍️ **Modern Web Stack:** Engineered **ShopLinker** using Next.js 16 App Router, SSR, Supabase Auth, PostgreSQL Row-Level Security (RLS), and StarPay cryptographic HMAC-SHA256 webhooks.
 
-The `assets` directory holds static assets such as images, logos, and other media files used throughout the application. This helps in organizing and managing the project's visual resources.
+---
 
-## Components 🧩
+## 🛠️ Technical Stack & Expertise
 
-This directory contains reusable UI components that are the building blocks of the application's user interface. Each subdirectory represents a specific section or feature:
+| Layer | Technologies |
+|---|---|
+| **Front-End** | React.js, Next.js (14/16 App Router), TypeScript, Tailwind CSS, Shadcn / Radix UI, Redux Toolkit, TanStack Query, Zustand, Framer Motion |
+| **Back-End & APIs** | Node.js, NestJS, Express.js, GraphQL, RESTful APIs, NextAuth, JWT, Microservices |
+| **Databases** | PostgreSQL, Oracle Database, MongoDB, MySQL, Supabase, Prisma ORM, Mongoose |
+| **Messaging & Architecture** | Apache Kafka, Debezium CDC, Event-Driven Architecture, Docker / Containerization, SMPP Gateway |
+| **Cloud, DevOps & Testing** | AWS, Git, GitHub Actions (CI/CD), Jest, React Testing Library, Cypress (E2E), Postman, Vercel |
 
-*   **`Contact/`**: ✉️ Components related to the contact section, likely including forms and display elements for contact information.
-*   **`Education/`**: 🎓 Components for displaying the user's educational background and qualifications.
-*   **`Experience/`**: 💼 Components for showcasing the user's work experience and professional history.
-*   **`Footer/`**: ⚓ The application's footer component, typically containing copyright information and links.
-*   **`Hero/`**: 🦸 The main hero section of the application, usually the first section users see, introducing the purpose of the site.
-*   **`Navbar/`**: 🧭 The navigation bar component, providing links to different sections of the application.
-*   **`Projects/`**: 🛠️ Components for displaying a portfolio of the user's projects and work samples.
-*   **`Skills/`**: 💪 Components for listing and visualizing the user's skills and expertise.
+---
 
-## Context ⚙️
+## 🌟 Featured Projects
 
-The `context` directory likely contains React Context providers for managing application-wide state, making data accessible across different components without prop drilling.
+1. **Banking Daily Operations Report Dashboard (Wegagen Bank)**
+   - Real-time operations intelligence monitoring Retail, Finance, Credit, and Digital operations.
+   - *Tech:* React, TypeScript, Next.js, Redux, Chart.js, D3.js, Material UI, NestJS, PostgreSQL, Oracle DB.
 
-*   **`ThemeContext.jsx`**: 🌙 Context for managing the application's theme, such as toggling between light and dark mode.
+2. **FX Queue Management System (Awarded CEO Commendation)**
+   - Mission-critical foreign exchange queue platform enforcing NBE compliance and transparent allocation.
+   - *Tech:* React, Next.js, Node.js, Express, PostgreSQL, JWT, Tailwind CSS.
 
-## Data 📊
+3. **ShopLinker — Full-Stack E-Commerce Platform**
+   - Next.js 16 App Router platform with SSR, Supabase RLS, and StarPay HMAC-SHA256 webhook verification.
+   - *Tech:* Next.js, TypeScript, Supabase, TanStack Query, Zustand, Tailwind CSS, Vercel.
 
-This directory holds data files (usually in JSON or JavaScript format) used by the application to populate various sections dynamically.
+4. **High-Throughput SMS Notification Pipeline**
+   - Fault-tolerant event-driven pipeline delivering 800+ messages/sec via Apache Kafka and Debezium CDC.
+   - *Tech:* Apache Kafka, Debezium CDC, Docker, Node.js microservices, Oracle DB, SMPP.
 
-*   **`educationData.js`**: Data for the education section, including details about degrees and institutions.
-*   **`experienceData.js`**: Data for the work experience section, detailing roles, responsibilities, and achievements.
-*   **`projectsData.js`**: Data for the projects section, providing information about each project, like descriptions and links.
-*   **`skillsData.js`**: Data for the skills section, listing the user's technical and soft skills.
+5. **ECDMS (Enterprise Construction Document Management System)**
+   - Construction project management platform managing multi-language documents, budgets, and stakeholders.
+   - *Tech:* Next.js, TypeScript, Tailwind CSS, TanStack Query, Chart.js, i18next, PostgreSQL.
+   - *Live:* [ecdms.onespace.et](https://ecdms.onespace.et)
 
-## Styles 🎨
+6. **Micahguru Official Platform**
+   - Global US entity formation platform serving founders across 175+ countries.
+   - *Tech:* Next.js, TypeScript, Tailwind CSS, shadcn/ui, Express.js, MongoDB.
+   - *Live:* [micahguru.com](https://micahguru.com)
 
-The `styles` directory might contain additional style files, such as variable definitions or shared style configurations, to maintain a consistent look and feel.
+---
 
-## Visitor Counter (`visitor-counter/`) 🔢
+## 💻 Local Development
 
-This directory contains the code for a visitor counter feature. It likely includes a server-side component (`server.js`) and related configuration files (`package.json`, `package-lock.json`) to track and display the number of visitors to the application.
+Clone and run the portfolio locally:
+
+```bash
+git clone https://github.com/Anduamlakalehegne/my-portfolio.git
+cd my-portfolio
+npm install
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+npm run serve
+```
+
+---
+
+## 📬 Contact & Inquiries
+
+- **Email:** [anduamlakalehegne@gmail.com](mailto:anduamlakalehegne@gmail.com)
+- **Phone:** [+251 985 253 384](tel:+251985253384)
+- **Location:** Addis Ababa, Bole · Ethiopia
+- **LinkedIn:** [linkedin.com/in/anduamlak-alehegne](https://www.linkedin.com/in/anduamlak-alehegne)
+- **GitHub:** [github.com/Anduamlakalehegne](https://github.com/Anduamlakalehegne)

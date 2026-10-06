@@ -1,111 +1,150 @@
-import img from '../assets/bazraProject.png'
-import pmt from '../assets/pmt.png'
-import fraud from '../assets/fraud.png'
-import clinic from '../assets/clinic.png'
-import dor from '../assets/dor.png'
-import related from '../assets/related.png'
-import website from '../assets/website.png'
-import eifdda from '../assets/eifdda.png'
-import ceo from '../assets/ceo.png'
-import voiceoflivinghopeministry from '../assets/voiceofhope.png'
-import micahguru from '../assets/micahguru.png'
-import ecdms from '../assets/ecdms.png'
+import img from '../assets/bazraProject.png';
+import pmt from '../assets/pmt.png';
+import shoplinker from '../assets/shoplinker.png';
+import vacancy from '../assets/vacancy.png';
+import dor from '../assets/dor.png';
+import related from '../assets/related.png';
+import website from '../assets/website.png';
+import queuemanagementimage from '../assets/queuemanagementimage.png';
+import micahguru from '../assets/micahguru.png';
+import ecdms from '../assets/ecdms.png';
 
 export const projectsData = [
-
+  {
+    title: "Banking Daily Operations Report Dashboard",
+    category: "BANKING ENTERPRISE",
+    image: dor,
+    description: "Enterprise real-time financial operations dashboard serving 3.6M+ customers across 441+ branches of Wegagen Bank. Provides granular visibility across Retail Operations (deposits & accounts), Finance (capital & liquidity position), Credit Operations (daily disbursements, collections & non-performing loans), and Digital Operations (USSD, Mobile, ATM, and POS transactions).",
+    metrics: ["3.6M+ Bank Customers", "441+ Branches", "Real-time Telemetry"],
+    highlights: [
+      "Real-time data synchronization across core banking systems and operational databases.",
+      "Multi-dimensional slicing by region, district, branch, and financial product type.",
+      "Executive level KPI telemetry enabling prompt data-driven liquidity and risk governance."
+    ],
+    technologies: ["React.js", "TypeScript", "Next.js", "Redux", "Chart.js", "D3.js", "Material UI", "NestJS", "PostgreSQL", "Oracle DB"]
+  },
+  {
+    title: "FX Queue Management System (CEO Commendation Award)",
+    category: "BANKING ENTERPRISE",
+    image: queuemanagementimage,
+    description: "Mission-critical foreign exchange queue and allocation management system built for Wegagen Bank. Awarded an Official Letter of Recognition from CEO Dr. Aklilu Wubet for significantly strengthening operational transparency, reducing allocation bottlenecks, and enforcing compliance with National Bank regulations.",
+    metrics: ["CEO Awarded", "NBE Regulated", "High Security"],
+    highlights: [
+      "Awarded Official Recognition by the Chief Executive Officer for technical and operational impact.",
+      "Strict role-based auditing, compliance workflows, and automated customer queue notifications.",
+      "End-to-end audit logging for sensitive foreign currency allocations and executive approvals."
+    ],
+    technologies: ["React.js", "TypeScript", "Next.js", "Node.js", "NestJS", "PostgreSQL", "JWT", "Tailwind CSS"]
+  },
+  {
+    title: "ShopLinker — Full-Stack E-Commerce Platform",
+    category: "E-COMMERCE / FINTECH",
+    image: shoplinker,
+    liveLink: "https://shop-linker.vercel.app/",
+    description: "Production-grade e-commerce platform built with Next.js 16 App Router and SSR. Implements Supabase Auth with secure session handling, persistent cart with real-time stock reconciliation, StarPay payment gateway integration with server-side HMAC-SHA256 webhook signature verification, and PostgreSQL Row-Level Security (RLS).",
+    metrics: ["Next.js 16 SSR", "HMAC-SHA256 Webhooks", "PostgreSQL RLS"],
+    highlights: [
+      "Server-side StarPay payment processing with cryptographic HMAC-SHA256 webhook verification.",
+      "Enforced PostgreSQL Row-Level Security (RLS) across all multi-tenant tables.",
+      "Optimized query cache and optimistic UI mutations using TanStack Query and Zustand."
+    ],
+    technologies: ["Next.js", "TypeScript", "Supabase", "TanStack Query", "Zustand", "Tailwind CSS", "Formik", "Yup", "Axios", "Vercel"]
+  },
+  {
+    title: "Customer Onboarding & KYC Platform",
+    category: "BANKING ENTERPRISE",
+    image: related,
+    liveLink: "https://customeronboarding.wegagenbanksc.com.et/",
+    description: "Digital banking customer onboarding and KYC verification system engineered for Wegagen Bank. Features self-service account registration, automated identity verification flows, document capture pipelines, and core banking system integration adhering strictly to KYC/AML regulatory standards.",
+    metrics: ["KYC/AML Compliance", "Core Banking API", "RBAC Auth"],
+    highlights: [
+      "Streamlined candidate registration and identity document verification workflows.",
+      "Enterprise authentication and authorization with NextAuth, JWT, and session encryption.",
+      "Integrated with core banking data layers to accelerate account activation."
+    ],
+    technologies: ["React.js", "TypeScript", "Tailwind CSS", "Shadcn", "PostgreSQL", "Express.js", "Node.js"]
+  },
+  {
+    title: "High-Throughput SMS Notification Pipeline",
+    category: "EVENT-DRIVEN ARCHITECTURE",
+    image: pmt,
+    description: "Fault-tolerant, event-driven banking notification engine delivering 800+ messages per second. Captures real-time transaction events via Debezium CDC from Oracle Database, publishes to Apache Kafka topics, and dispatches formatted multilingual SMS notifications through containerized Node.js worker microservices connected to SMPP/Kannel telecom gateways.",
+    metrics: ["800+ Messages / Sec", "Debezium CDC", "Apache Kafka"],
+    highlights: [
+      "Zero-data-loss Change Data Capture (CDC) from primary Oracle database directly to Kafka.",
+      "Horizontally scalable containerized Node.js worker pools running in Docker.",
+      "Low-latency SMPP telecom gateway routing with automated fallback queues and retry mechanisms."
+    ],
+    technologies: ["Apache Kafka", "Debezium CDC", "Node.js", "Docker", "Oracle DB", "Microservices", "SMPP Gateway"]
+  },
   {
     title: "ECDMS (Enterprise Construction Document Management System)",
-    description: "ECDMS (Enterprise Construction Document Management System) is a construction and engineering project management platform. It manages projects, stakeholders, resources, documents, and organizational structures. Features include project lifecycle management, resource tracking (materials, machinery, manpower, finances), document management, role-based access control, multi-language support, and analytics dashboards.",
-    image: ecdms, 
-    category: "ECDMS WEBSITE", 
-    liveLink: "https://ecdms.onespace.et", 
-    technologies: ["TypeScript", "Next.js","Tailwind CSS", "Redux Toolkit", "TanStack Query", "Formik", "Yup", "Chart.js", "i18next", "JWT Auth", "ESLint", "Prettier", "NodeJS", "Express.js", "PostgreSQL"]
+    category: "ENTERPRISE SAAS",
+    image: ecdms,
+    liveLink: "https://ecdms.onespace.et",
+    description: "Robust construction and engineering document management platform. Streamlines project lifecycle oversight, stakeholder permissions, manpower/machinery tracking, multi-language internationalization (i18next), and dynamic analytics reporting.",
+    metrics: ["Live Production", "Multi-Language", "Role-Based RBAC"],
+    highlights: [
+      "Comprehensive resource tracking (materials, machinery, manpower, budget allocations).",
+      "Interactive data visualizations with Chart.js and state synchronization with TanStack Query.",
+      "Full internationalization support and high-performance server-side rendering."
+    ],
+    technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Redux Toolkit", "TanStack Query", "Chart.js", "i18next", "NodeJS", "Express.js", "PostgreSQL"]
+  },
+  {
+    title: "Micahguru Official Platform",
+    category: "US SAAS PLATFORM",
+    image: micahguru,
+    liveLink: "https://micahguru.com",
+    description: "All-in-one business formation and compliance platform supporting entrepreneurs across 175+ countries to incorporate U.S. entities (LLC, EIN, ITIN, corporate bank setup, registered agent, and tax compliance).",
+    metrics: ["175+ Countries", "Global SaaS", "Payment Integration"],
+    highlights: [
+      "Modern UI built with Next.js, TypeScript, and shadcn/ui components.",
+      "Automated document generation and compliance workflow management.",
+      "Secure payment processing and encrypted customer data vaults."
+    ],
+    technologies: ["TypeScript", "Next.js", "Tailwind CSS", "shadcn/ui", "Node.js", "Express.js", "MongoDB"]
+  },
+  {
+    title: "Vacancy & Recruitment Platform",
+    category: "BANKING ENTERPRISE",
+    image: vacancy,
+    liveLink: "https://vacancy.wegagenbanksc.com.et/",
+    description: "Full-stack job board and talent acquisition portal engineered for Wegagen Bank. Features role-based dashboards for candidates and HR admins, vacancy postings, resume attachments, candidate screening stages, and audit reporting.",
+    metrics: ["HR Automation", "Role-Based Dashboards", "Radix UI"],
+    highlights: [
+      "Role-based dashboards for both applicants and HR recruitment committees.",
+      "Built with reusable Radix UI / Tailwind primitives ensuring accessibility and responsiveness.",
+      "Secure candidate record handling and document uploading."
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "JWT", "Radix UI", "Node.js"]
   },
   {
     title: "Wegagen Bank Official Website",
-    description: "The Wegagen Bank Official Website is a user-friendly, responsive platform designed to provide customers with access to all the bank’s services, products, and information. The website allows users to explore various banking services such as personal accounts, loans, credit cards, and investment options. It also provides up-to-date information on branch locations, ATMs, and online banking services. The site is optimized for both desktop and mobile views, offering a seamless user experience across different devices. The website includes secure login functionalities for customers to access online banking features and perform transactions.",
-    image: website, 
-    category: "BANKING WEBSITE", 
-    liveLink: "https://www.wegagen.com", 
+    category: "BANKING PLATFORM",
+    image: website,
+    liveLink: "https://www.wegagen.com",
+    description: "Public-facing corporate portal for Wegagen Bank providing customers seamless access to retail and corporate banking products, interactive branch & ATM locators, daily foreign exchange rates, and secure portal gateways.",
+    metrics: ["High Traffic", "Optimized Core Web Vitals", "Responsive"],
+    highlights: [
+      "Engineered mobile-first, highly responsive layout with modern Framer Motion micro-interactions.",
+      "Optimized Core Web Vitals and SEO for discoverability across banking services.",
+      "Clean RESTful integration with real-time financial rate updates."
+    ],
     technologies: ["JavaScript", "Tailwind CSS", "React.js", "NodeJS", "Express.js", "PostgreSQL", "Framer Motion"]
   },
   {
-    title: "Micahguru Official Website",
-    description: "MicahGuru is an online platform for forming and managing U.S. companies. It provides an all-in-one service where entrepreneurs can handle business formation and compliance tasks in one place – for example, LLC formation, EIN registration, ITIN applications, tax filings, and more. The site also offers related services like a registered agent, virtual mailing address, and business bank account setup. MicahGuru emphasizes fast, affordable processing and notes that it supports customers worldwide (over 175 countries).",
-    image: micahguru, 
-    category: "BUSINESS WEBSITE", 
-    liveLink: "https://micahguru.com", 
-    technologies: ["TypeScript", "Next.js", "Tailwind CSS", "shadcn/ui", "NodeJS", "Express.js", "MongoDB"]
-  },
-  {
-    title: "VOICE OF LIVING HOPE MINISTRY",
-    description: "Voice of Living Hope (VOH) is an interdenominational Christian organization committed to spiritual growth and community transformation. Officially registered and certified as a legal religious organization in Ethiopia on July 5, 2018 GC, or October 28, 2010 EC. VOH continues to serve as a beacon of hope.",
-    image: voiceoflivinghopeministry, 
-    category: "NGO WEBSITE", 
-    liveLink: "https://voiceoflivinghopeministry.org/", 
-    technologies: ["JavaScript", "Tailwind CSS", "shadcn/ui", "React.js", "NodeJS", "Express.js", "PostgreSQL", "Strapi", "Framer Motion"]
-  },
-  {
-    title: "EIFDDA Official Website",
-    description: "EIFDDA.org is a platform for the Ethiopian Interfaith Forum for Development, Dialogue, and Action. It promotes peace and collaboration among diverse religious communities. The website features a user-friendly interface with an event calendar, news updates, and interactive forms for community engagement. It is responsive, optimized for performance, and includes robust security measures to protect user data. The site effectively communicates EIFDDA’s mission of fostering interfaith dialogue and development.",
-    image: eifdda, 
-    category: "NGO WEBSITE",
-    githubLink: "https://github.com/YourRepo/eifdda-website", 
-    liveLink: "http://eifdda.org", 
-    technologies: ["JavaScript", "Tailwind CSS", "React.js", "NodeJS", "Express.js", "PostgreSQL", "Framer Motion"]
-  },
-  {
-    title: "Banking Daily Operations Report Dashboard",
-    description: "Our Banking Daily Operations Report Dashboard is a comprehensive solution designed to provide an in-depth analysis of various banking operations in real-time. It features detailed tabs for Retail Operations, Finance, Credit Operations, and Digital Operations, each offering critical insights into the bank's performance. The Retail Operations tab tracks deposit growth and total deposits, segmented by region, district, and product type, with flexible time filtering options (weekly, monthly, quarterly, and yearly). The Finance tab monitors key financial metrics, including the number of shareholders, paid-up capital, and cash position, with detailed breakdowns by region, district, and product type. The Credit Operations tab focuses on daily loan disbursements, collections, and outstanding loans. The Digital Operations tab provides transaction data for USSD, mobile, ATM, and POS operations. Additionally, the dashboard includes sections to display the total number of customers, employees, branches, ATMs, agents, and POS terminals, with a button to display the daily exchange rate. This dashboard ensures bank management has all the operational data they need at their fingertips, enabling quick, data-driven decision-making.",
-    image: dor, 
-    category: "BANKING SOLUTIONS",
-    technologies: ["React.js", "TypeScript", "Next.JS", "Node.js", "NestJS", "Express.js", "Chart.js", "D3.js", "PostgreSQL", "Redux", "Material-UI", "Oracle DB"]
-  },
-  // {
-  //   title: "Talk To The CEO",
-  //   description: "The 'Talk To The CEO' project aims to create a platform where customers can communicate directly with the CEO of the bank. This project includes both frontend and backend development, API integrations, and OTP validation for secure user authentication.",
-  //   image: ceo,
-  //   category: "MACHINE LEARNING",
-  //   technologies: ["React.JS", "TypeScript", "Next.JS", "NodeJS","NextJS", "MongoDB", "Express.JS","JWT","Material-UI", "Email.JS", "Socket.IO" ]
-  // },
-  {
-    title: "Related Party System",
-    description: "The Related Party System is a comprehensive solution designed to ensure compliance with the National Bank of Ethiopia (NBE) directives, specifically Dir. No. SBB 053/12. The system identifies loans and advances that have been approved exceptionally by the approving committee for related parties of the bank. It helps track these transactions, ensuring they are properly recorded and reported. The system generates real-time reports to provide visibility on related party transactions and loans, which are critical for the bank's executive leadership team. This information is used for strategic planning, risk management, and decision-making, ensuring the bank operates transparently and in alignment with regulatory requirements.",
-    image: related, 
-    category: "BANKING COMPLIANCE SYSTEMS",
-    technologies: ["React.js", "TypeScript", "Next.JS",  "NodeJS", "Express.js", "MongoDB", "Redux", "Material-UI"]
-  },
-  // {
-  //   title: "Clinic Management System",
-  //   description: "Our Clinic Management System is an all-in-one solution designed to streamline and automate the day-to-day operations of clinics and healthcare facilities. It enables clinics to manage patient appointments, medical records, billing, and staff efficiently. The system allows patients to book appointments online, while the clinic staff can track patient history, treatments, and prescriptions in a secure, digital environment. Key features include a patient portal for easy access to medical records, automated reminders for upcoming appointments, and real-time updates for both doctors and patients. The system integrates with laboratory and pharmacy management tools, ensuring seamless coordination for lab tests and medication prescriptions. Additionally, the platform provides advanced reporting features for clinic management, helping track financials, inventory, and operational performance. With a focus on security, the system ensures compliance with healthcare data protection regulations, providing a secure platform for managing sensitive patient information.",
-  //   image: clinic ,
-  //   category: "HEALTHCARE SOLUTIONS",
-  //   technologies: ["React.JS", "NodeJS", "MongoDB", "Express.JS", "JWT", "Material-UI", "MySQL"]
-  // },
-  {
-    title: "Project Management Tool",
-    description: "Our Project Management Tool is designed to streamline the process of managing tasks, teams, and projects. It offers comprehensive features such as task tracking, progress monitoring, team collaboration, and deadline management. The tool provides customizable workflows to fit different project types, enabling teams to work efficiently and meet deadlines. It includes a powerful dashboard for tracking the status of ongoing tasks, setting priorities, and ensuring that all team members stay on the same page. With real-time updates and notifications, the tool ensures that every change and decision is communicated instantly. Additionally, it integrates with various third-party tools such as Slack, Google Calendar, and GitHub, making it a one-stop solution for project management needs. The platform also includes analytics to track team performance and project outcomes, allowing managers to identify bottlenecks and optimize workflows for better productivity.",
-    image: pmt,
-    category: "WEB APP'S", 
-    githubLink: "https://github.com/Anduamlakalehegne/Project-Management-tool",  
-    technologies: ["React.JS", "NodeJS", "MongoDB", "Express.JS", "Redux", "Material-UI","JWT",]
-  },
-  {
-    title: "Fraud Management System",
-    description: "Our Banking Fraud Management System is a comprehensive platform designed to detect, prevent, and manage fraudulent activities within the banking sector. The system can identify suspicious behavior and unauthorized transactions. Key features include monitoring high-risk transactions, real-time alerts for potential fraud, automated case management for fraud investigations, and dynamic risk scoring for transactions. The system integrates with banking APIs to assess transaction histories, customer behaviors, and account activity to flag anomalies. Furthermore, it provides a robust reporting dashboard for compliance teams, ensuring adherence to regulatory requirements. With customizable fraud detection rules, the system adapts to emerging threats and evolving fraud tactics. The platform’s secure and scalable infrastructure supports seamless integration with existing banking software, ensuring a high level of protection for both the bank and its customers. By enhancing fraud detection and response, the system helps mitigate financial losses, prevent reputational damage, and improve customer trust.",
-    image: fraud, 
-    category: "WEB APP'S",
-    githubLink: "https://github.com/Anduamlakalehegne/Fraud-Management-System", 
-    technologies: ["React.JS", "NodeJS", "MongoDB", "Express.JS","JWT",]
-  },
-  {
-    title: "Bazra Tracker ",
-    description: "Our Logistic System is an advanced platform designed to automate and optimize the entire logistics and supply chain process. It offers end-to-end solutions, from order placement to real-time shipment tracking and final delivery. The system integrates seamlessly with inventory management tools, enabling efficient stock control and order fulfillment. Key features include route optimization for faster deliveries, automated scheduling, and dynamic inventory updates. The platform provides real-time tracking for both businesses and customers, ensuring transparency and reliability. With built-in analytics, it helps identify inefficiencies and provides actionable insights to improve logistics operations. Additionally, the system supports multi-location logistics management, enabling businesses to handle multiple warehouses, distribution centers, and delivery points with ease. By leveraging modern technologies and third-party integrations, the system ensures a smooth and efficient flow of goods, ultimately reducing operational costs and improving customer satisfaction.",
+    title: "Bazra Logistics Tracker",
+    category: "ENTERPRISE PLATFORM",
     image: img,
-    category: "WEB APP'S",
     githubLink: "https://github.com/BazraTech/bazraTech",
-    liveLink: " http://bazralogistics.com/",
-    technologies: ["React.JS", "PostgreSQL", "NodeJS", "Express.JS", "Redux", "React Flow","JWT",]
-  },
-  
+    liveLink: "http://bazralogistics.com",
+    description: "Supply chain and fleet management platform providing real-time shipment status, multi-warehouse inventory tracking, dynamic route optimization, and interactive logistics node mapping.",
+    metrics: ["Fleet Tracking", "Route Optimization", "React Flow"],
+    highlights: [
+      "Interactive routing and pipeline visualization utilizing React Flow.",
+      "Robust state management and real-time shipment event tracking."
+    ],
+    technologies: ["React.js", "PostgreSQL", "Node.js", "Express.js", "Redux", "React Flow", "JWT"]
+  }
 ];

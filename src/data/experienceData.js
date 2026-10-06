@@ -1,32 +1,47 @@
-
-import img from '../assets/main-img.png'
-import minarc from '../assets/minarc.jpg'
-import bazra from '../assets/bazra.png'
-import wegagen from '../assets/wegagen.png'
+import idezzaLogo from '../assets/idezza-logo.svg';
+import bazra from '../assets/bazra.png';
+import wegagen from '../assets/wegagen.png';
 
 export const experienceData = [
   {
-    role: "Fullstack Developer",
-    company: "Mender Information architecture and software design",
-    companyLogo: minarc,
-    date: "May 2024 - Dec 2024",
-    description: "As a Fullstack Developer at Mender Information architecture and software design, I built modular, scalable, and maintainable web applications using React, Next.js, and Node.js, while also developing and optimizing backend services by implementing RESTful APIs with secure authentication using JWT. Additionally, I designed and integrated efficient MySQL queries to enhance backend performance and ensure seamless data management.",
-    skills: ["ReactJS", "Redux", "TypeScript", "NextJS", "Tailwind CSS", "NestJS", "NodeJS", "ExpressJS", "GraphQL", "PostgreSQL", "MongoDB"]
+    role: "Frontend Developer (Remote)",
+    company: "IDEEZA",
+    companyLogo: idezzaLogo,
+    date: "Jun 2025 - May 2026",
+    description: "Architected and delivered high-performance frontend features for a live Generative AI platform using React.js, Next.js 14, and TypeScript, optimizing rendering strategies to achieve fast load times on complex data-heavy views.",
+    achievements: [
+      "Engineered reusable, accessible UI component library using Shadcn and Tailwind CSS, reducing UI development cycle time by ~30% across sprints.",
+      "Implemented advanced performance optimizations including code splitting, lazy loading, and intelligent server state caching via React Query.",
+      "Integrated RESTful APIs with end-to-end TypeScript type safety across data contracts, eliminating runtime type exceptions.",
+      "Collaborated on AI-driven blueprint generation features and NFT minting workflows in a high-velocity remote startup environment."
+    ],
+    skills: ["Next.js 14", "React", "TypeScript", "Tailwind CSS", "Shadcn", "React Query", "NestJS", "Node.js", "PostgreSQL", "MongoDB"]
   },
   {
     role: "Full-Stack Developer",
     company: "Wegagen Bank",
     companyLogo: wegagen,
-    date: "Jun 2022 - Aug 2024",
-    description: "At Wegagen Bank, I engineered high-performance applications using React.js, Next.js, and NestJS for complex banking systems, collaborating with cross-functional teams to enhance UI/UX and ensure scalability in backend services with Node.js, PostgreSQL, and MongoDB. Additionally, I designed and implemented robust authentication solutions using NextAuth and JWT to ensure secure and seamless user experiences.",
-    skills: ["ReactJS", "Redux", "TypeScript", "NextJS", "Material UI", "NestJS", "NodeJS", "ExpressJS", "GraphQL", "PostgreSQL", "MYSQL", "Nginx"]
+    date: "Jun 2022 - Nov 2025",
+    description: "Delivered mission-critical digital banking and enterprise operations platforms in a highly regulated financial environment serving 3.6M+ customers and 5,400+ bank staff across 441+ branches.",
+    achievements: [
+      "Led development of real-time Banking Operations Dashboard tracking retail, credit, foreign exchange, and digital channels.",
+      "Received Official Recognition & Commendation from CEO Dr. Aklilu Wubet for outstanding contribution to the FX Queue Management System.",
+      "Designed and deployed an event-driven SMS notification pipeline delivering 800+ messages/sec using Apache Kafka, Debezium CDC from Oracle DB, and containerized Node.js microservices to SMPP/Kannel telecom gateways.",
+      "Engineered Customer Onboarding & KYC platform with digital registration, document verification, and compliance-driven workflows.",
+      "Implemented enterprise RBAC with NextAuth and JWT, enforcing robust security protocols against XSS/CSRF, SQLi, and sensitive financial data leaks."
+    ],
+    skills: ["Next.js", "React", "TypeScript", "NestJS", "Node.js", "Apache Kafka", "Debezium CDC", "PostgreSQL", "Oracle DB", "Docker", "Tailwind CSS", "JWT"]
   },
   {
     role: "Frontend Developer",
     company: "Bazra Technology Group",
     companyLogo: bazra,
     date: "Jan 2022 - Aug 2022",
-    description: "As a Frontend Developer, I built and optimized responsive, user-friendly interfaces using React and TypeScript, while leading the development of a modular and scalable codebase to enhance maintainability and flexibility across the application.",
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Redux" ]
+    description: "Engineered responsive, performant user interfaces and built modular client-side architectures for enterprise applications.",
+    achievements: [
+      "Developed responsive client features using React and TypeScript, boosting cross-device usability.",
+      "Built clean, modular state-management structures with Redux, accelerating team feature delivery."
+    ],
+    skills: ["React", "TypeScript", "JavaScript", "Redux", "HTML5", "CSS3"]
   }
 ];

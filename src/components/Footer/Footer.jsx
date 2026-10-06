@@ -114,7 +114,7 @@ const Footer = () => {
         >
           {[ 
             { Icon: FaGithub, label: 'GitHub', href: 'https://github.com/Anduamlakalehegne' },
-            { Icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/anduaml-alehegne-4632aa219/' },
+            { Icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/anduamlak-alehegne' },
             { Icon: FaFacebook, label: 'Facebook', href: 'https://web.facebook.com/anduamlak.alehegne.79' },
             { Icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/na.ndu_27/' },
           ].map(({ Icon, label, href }, index) => (
@@ -139,10 +139,10 @@ const Footer = () => {
           className={styles.copyright}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          © 2025 Anduamlak Alehegne — Open to Full‑Stack roles.
+          © 2026 Anduamlak Alehegne — Senior Full-Stack Engineer.
         </motion.p>
       </motion.div>
     </motion.footer>

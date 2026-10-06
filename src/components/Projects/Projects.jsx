@@ -1,38 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Projects.module.css';
 import { projectsData } from '../../data/projectsData';
 import { FaGithub, FaExternalLinkAlt, FaRegPlusSquare } from 'react-icons/fa';
-import { motion, AnimatePresence, useAnimation, useScroll, useTransform } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const filterCategories = [
+  { id: 'ALL', label: 'ALL' },
+  { id: 'BANKING', label: 'BANKING ENTERPRISE' },
+  { id: 'ECOMMERCE', label: 'E-COMMERCE / FINTECH' },
+  { id: 'SAAS', label: 'ENTERPRISE SAAS' },
+  { id: 'ARCHITECTURE', label: 'EVENT-DRIVEN ARCHITECTURE' }
+];
 
 const Projects = () => {
-  const [filter, setFilter] = useState('ALL');
+  const [activeFilter, setActiveFilter] = useState('ALL');
   const [selectedProject, setSelectedProject] = useState(null);
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    } else {
-      controls.start('hidden');
+  const filteredProjects = projectsData.filter((project) => {
+    if (activeFilter === 'ALL') return true;
+    if (activeFilter === 'BANKING') {
+      return project.category.includes('BANKING');
     }
-  }, [controls, inView]);
-
-  const filteredProjects = filter === 'ALL'
-    ? projectsData
-    : projectsData.filter(project => project.category === filter);
+    if (activeFilter === 'ECOMMERCE') {
+      return project.category.includes('E-COMMERCE') || project.category.includes('FINTECH');
+    }
+    if (activeFilter === 'SAAS') {
+      return project.category.includes('SAAS') || project.category.includes('ENTERPRISE') && !project.category.includes('BANKING');
+    }
+    if (activeFilter === 'ARCHITECTURE') {
+      return project.category.includes('EVENT-DRIVEN') || project.category.includes('ARCHITECTURE');
+    }
+    return project.category === activeFilter;
+  });
 
   const openProjectDetails = (project) => {
     setSelectedProject(project);
@@ -42,129 +41,100 @@ const Projects = () => {
     setSelectedProject(null);
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
-    <motion.section
-      id="projects"
-      className={styles.projects}
-      ref={ref}
-      style={{ opacity, scale }}
-    >
+    <section id="projects" className={styles.projects}>
       <motion.h2
-        initial={{ opacity: 0, y: -50 }}
+        initial={{ opacity: 0, y: -25 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.5 }}
-        transition={{ duration: 1, type: "spring" }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5, type: 'spring' }}
       >
-        Projects
+        Featured Projects & Architecture
       </motion.h2>
       <motion.p
         className={styles.subtitle}
-        initial={{ opacity: 0, y: -30 }}
+        initial={{ opacity: 0, y: -15 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.5 }}
-        transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.1, type: 'spring' }}
       >
-        Selected work focused on measurable outcomes: faster loads, higher conversion, and scalable services.
+        Production-grade banking platforms, event-driven microservices, enterprise SaaS, and full-stack applications with verified metrics.
       </motion.p>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: false, amount: 0.5 }}
-        transition={{ duration: 0.4, delay: 0.3 }}
-        style={{ marginBottom: 16 }}
-      >
-        <a href="https://github.com/Anduamlakalehegne" target="_blank" rel="noopener noreferrer" className={styles.subtitle} style={{ textDecoration: 'none' }}>
-          → View more on GitHub
-        </a>
-      </motion.div>
 
+      {/* Filter Tabs */}
       <motion.div
-        className={styles.projectsGrid}
-        initial="hidden"
-        animate={controls}
-        variants={{
-          visible: {
-            transition: {
-              staggerChildren: 0.3,
-            },
-          },
-        }}
+        className={styles.filterContainer}
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.4, delay: 0.15 }}
       >
-        {filteredProjects.map((project, index) => (
-          <motion.div
-            key={index}
-            className={styles.projectCard}
-            variants={cardVariants}
-            transition={{ duration: 0.5, type: "spring" }}
-            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            onClick={() => openProjectDetails(project)}
+        {filterCategories.map((cat) => (
+          <button
+            key={cat.id}
+            className={`${styles.filterBtn} ${activeFilter === cat.id ? styles.activeFilterBtn : ''}`}
+            onClick={() => setActiveFilter(cat.id)}
           >
-            <motion.div
-              className={styles.projectImageWrapper}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <img src={project.image} alt={project.title} />
-              <motion.div
-                className={styles.projectOverlay}
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.span
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1.2, rotate: 90 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                >
-                  <FaRegPlusSquare size={30} />
-                </motion.span>
-              </motion.div>
-            </motion.div>
-            <div className={styles.projectInfo}>
-              <h3>{project.title}</h3>
-              <p>{project.description.slice(0, 100)}{project.description.length > 100 ? '...' : ''}</p>
-
-              {Array.isArray(project.metrics) && project.metrics.length > 0 && (
-                <div className={styles.techStack}>
-                  {project.metrics.map((m, mi) => (
-                    <motion.span
-                      key={mi}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: false, amount: 0.5 }}
-                      transition={{ duration: 0.3, delay: mi * 0.08 }}
-                      whileHover={{ scale: 1.08 }}
-                    >
-                      {m}
-                    </motion.span>
-                  ))}
-                </div>
-              )}
-
-              <div className={styles.techStack}>
-                {project.technologies.map((tech, techIndex) => (
-                  <motion.span
-                    key={techIndex}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: false, amount: 0.5 }}
-                    transition={{ duration: 0.3, delay: techIndex * 0.1 }}
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+            {cat.label}
+          </button>
         ))}
       </motion.div>
 
+      {/* Projects Grid with layout animation */}
+      <motion.div layout className={styles.projectsGrid}>
+        <AnimatePresence mode="popLayout">
+          {filteredProjects.map((project) => (
+            <motion.div
+              layout
+              key={project.title}
+              className={styles.projectCard}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.25 }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              onClick={() => openProjectDetails(project)}
+            >
+              <div className={styles.projectImageWrapper}>
+                <img src={project.image} alt={project.title} loading="lazy" />
+                <div className={styles.projectOverlay}>
+                  <span>
+                    <FaRegPlusSquare size={28} />
+                  </span>
+                </div>
+              </div>
+              <div className={styles.projectInfo}>
+                <span className={styles.categoryBadge}>{project.category}</span>
+                <h3>{project.title}</h3>
+                <p>{project.description.slice(0, 130)}{project.description.length > 130 ? '...' : ''}</p>
+
+                {Array.isArray(project.metrics) && project.metrics.length > 0 && (
+                  <div className={styles.techStack} style={{ marginBottom: '0.6rem' }}>
+                    {project.metrics.map((m, mi) => (
+                      <span key={mi} className={styles.metricBadge}>
+                        {m}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div className={styles.techStack}>
+                  {project.technologies.slice(0, 6).map((tech, techIndex) => (
+                    <span key={techIndex}>
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 6 && (
+                    <span>+{project.technologies.length - 6} more</span>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
+
+      {/* Modal Popup */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -176,95 +146,87 @@ const Projects = () => {
           >
             <motion.div
               className={styles.popup}
-              initial={{ scale: 0.5, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.5, opacity: 0 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ duration: 0.25 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <motion.button
+              <button
                 className={styles.closeButton}
                 onClick={closeProjectDetails}
-                whileHover={{ scale: 1.1, rotate: 90 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                aria-label="Close details"
               >
                 &times;
-              </motion.button>
-              <motion.h3
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                {selectedProject.title}
-              </motion.h3>
-              <motion.img
+              </button>
+              <span className={styles.categoryBadge}>{selectedProject.category}</span>
+              <h3>{selectedProject.title}</h3>
+              <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
               />
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.9 }}
-              >
-                {selectedProject.description}
-              </motion.p>
-              {Array.isArray(selectedProject.highlights) && selectedProject.highlights.length > 0 && (
-                <ul style={{ margin: '8px 0 0 16px' }}>
-                  {selectedProject.highlights.map((h, hi) => (
-                    <li key={hi} style={{ marginBottom: 4 }}>{h}</li>
+
+              {Array.isArray(selectedProject.metrics) && selectedProject.metrics.length > 0 && (
+                <div className={styles.techStack} style={{ margin: '0.8rem 0' }}>
+                  {selectedProject.metrics.map((m, mi) => (
+                    <span key={mi} className={styles.metricBadge}>
+                      {m}
+                    </span>
                   ))}
-                </ul>
+                </div>
               )}
-              <motion.div
-                className={styles.techStack}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
+
+              <p>{selectedProject.description}</p>
+
+              {Array.isArray(selectedProject.highlights) && selectedProject.highlights.length > 0 && (
+                <div style={{ margin: '1rem 0' }}>
+                  <h4 style={{ color: '#fff', fontSize: '1rem', marginBottom: '0.5rem' }}>Key Architectural Highlights:</h4>
+                  <ul style={{ margin: '0 0 0 1.2rem', padding: 0, color: '#cbd5e1', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                    {selectedProject.highlights.map((h, hi) => (
+                      <li key={hi} style={{ marginBottom: 4 }}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div className={styles.techStack} style={{ marginTop: '1rem' }}>
                 {selectedProject.technologies.map((tech, techIndex) => (
-                  <motion.span
-                    key={techIndex}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.6 + techIndex * 0.3 }}
-                    whileHover={{ scale: 1.1 }}
-                  >
+                  <span key={techIndex}>
                     {tech}
-                  </motion.span>
+                  </span>
                 ))}
-              </motion.div>
-              <motion.div
-                className={styles.projectLinks}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.7 }}
-              >
-                <motion.a
-                  href={selectedProject.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaGithub /> View Code
-                </motion.a>
-                <motion.a
-                  href={selectedProject.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaExternalLinkAlt /> View Live
-                </motion.a>
-              </motion.div>
+              </div>
+
+              <div className={styles.projectLinks}>
+                {selectedProject.githubLink && (
+                  <a
+                    href={selectedProject.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaGithub /> View Code
+                  </a>
+                )}
+                {selectedProject.liveLink && (
+                  <a
+                    href={selectedProject.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaExternalLinkAlt /> View Live
+                  </a>
+                )}
+                {!selectedProject.liveLink && !selectedProject.githubLink && (
+                  <span style={{ color: '#94a3b8', fontSize: '0.88rem', fontStyle: 'italic', padding: '0.5rem' }}>
+                    (Internal banking / enterprise system — source code confidential)
+                  </span>
+                )}
+              </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.section>
+    </section>
   );
 };
 
