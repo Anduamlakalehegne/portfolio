@@ -28,4 +28,5 @@ dist-ssr
 
 # Local generated files
 *.pdf
+!public/Anduamlak_Alehegne_Resume.pdf
 generate_cv.py

@@ -78,11 +78,11 @@ const Hero = () => {
   };
 
   const handleDownloadResume = () => {
-    const fileId = '14eqzGmsCGqJ8Lg3rMyNFbZfdzu930U6c';
-    const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+    const resumeUrl = `${import.meta.env.BASE_URL}Anduamlak_Alehegne_Resume.pdf`;
     const link = document.createElement('a');
-    link.href = downloadUrl;
-    link.download = 'Anduamlak_Alehegne_Resume.pdf';
+    link.href = resumeUrl;
+    link.setAttribute('download', 'Anduamlak_Alehegne_Resume.pdf');
+    link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
