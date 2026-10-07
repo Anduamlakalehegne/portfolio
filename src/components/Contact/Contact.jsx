@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import emailjs from 'emailjs-com';
 import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
+import { trackEvent } from '../../utils/analytics';
 import styles from './Contact.module.css';
 
 const Contact = () => {
@@ -48,6 +49,7 @@ const Contact = () => {
         formRef.current,
         publicKey
       );
+      trackEvent('contact_form_submit', { status: 'success' });
       setSubmitStatus('success');
       setFormData({ email: '', name: '', subject: '', message: '' });
       setErrorMessage(null);
@@ -232,13 +234,25 @@ const Contact = () => {
           >
             <div className={styles.infoItem}>
               <Mail size={22} color="#646cff" />
-              <a href="mailto:anduamlakalehegne@gmail.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <a 
+                href="mailto:anduamlakalehegne@gmail.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: 'inherit', textDecoration: 'none' }}
+                onClick={() => trackEvent('contact_click', { platform: 'Email', location: 'Contact' })}
+              >
                 anduamlakalehegne@gmail.com
               </a>
             </div>
             <div className={styles.infoItem}>
               <Phone size={22} color="#646cff" />
-              <a href="tel:+251985253384" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <a 
+                href="tel:+251985253384" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: 'inherit', textDecoration: 'none' }}
+                onClick={() => trackEvent('contact_click', { platform: 'Phone', location: 'Contact' })}
+              >
                 +251 985 253 384
               </a>
             </div>
@@ -248,13 +262,25 @@ const Contact = () => {
             </div>
             <div className={styles.infoItem}>
               <Linkedin size={22} color="#646cff" />
-              <a href="https://www.linkedin.com/in/anduamlak-alehegne" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <a 
+                href="https://www.linkedin.com/in/anduamlak-alehegne" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: 'inherit', textDecoration: 'none' }}
+                onClick={() => trackEvent('contact_click', { platform: 'LinkedIn', location: 'Contact' })}
+              >
                 linkedin.com/in/anduamlak-alehegne
               </a>
             </div>
             <div className={styles.infoItem}>
               <Github size={22} color="#646cff" />
-              <a href="https://github.com/Anduamlakalehegne" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <a 
+                href="https://github.com/Anduamlakalehegne" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: 'inherit', textDecoration: 'none' }}
+                onClick={() => trackEvent('contact_click', { platform: 'GitHub', location: 'Contact' })}
+              >
                 github.com/Anduamlakalehegne
               </a>
             </div>

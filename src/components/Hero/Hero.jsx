@@ -3,6 +3,7 @@ import styles from './Hero.module.css';
 import img from '../../assets/mesita21.jpg';
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useAnimation, useInView } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { trackEvent } from '../../utils/analytics';
 
 const Hero = () => {
   const ref = useRef(null);
@@ -78,6 +79,7 @@ const Hero = () => {
   };
 
   const handleDownloadResume = () => {
+    trackEvent('resume_download', { file_name: 'Anduamlak_Alehegne_Resume.pdf' });
     const resumeUrl = `${import.meta.env.BASE_URL}Anduamlak_Alehegne_Resume.pdf`;
     const link = document.createElement('a');
     link.href = resumeUrl;
@@ -196,6 +198,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             style={{ color: '#94a3b8', transition: 'color 0.2s' }}
             title="GitHub Profile"
+            onClick={() => trackEvent('contact_click', { platform: 'GitHub', location: 'Hero' })}
           >
             <FaGithub />
           </a>
@@ -205,6 +208,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             style={{ color: '#94a3b8', transition: 'color 0.2s' }}
             title="LinkedIn Profile"
+            onClick={() => trackEvent('contact_click', { platform: 'LinkedIn', location: 'Hero' })}
           >
             <FaLinkedin />
           </a>
@@ -214,6 +218,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             style={{ color: '#94a3b8', transition: 'color 0.2s' }}
             title="Email Me"
+            onClick={() => trackEvent('contact_click', { platform: 'Email', location: 'Hero' })}
           >
             <FaEnvelope />
           </a>

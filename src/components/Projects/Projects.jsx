@@ -3,6 +3,7 @@ import styles from './Projects.module.css';
 import { projectsData } from '../../data/projectsData';
 import { FaGithub, FaExternalLinkAlt, FaRegPlusSquare } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackEvent } from '../../utils/analytics';
 
 const filterCategories = [
   { id: 'ALL', label: 'ALL' },
@@ -203,6 +204,7 @@ const Projects = () => {
                     href={selectedProject.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent('project_click', { project: selectedProject.title, type: 'github_code' })}
                   >
                     <FaGithub /> View Code
                   </a>
@@ -212,6 +214,7 @@ const Projects = () => {
                     href={selectedProject.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent('project_click', { project: selectedProject.title, type: 'live_demo' })}
                   >
                     <FaExternalLinkAlt /> View Live
                   </a>
